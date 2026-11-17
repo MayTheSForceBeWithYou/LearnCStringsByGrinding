@@ -1,0 +1,9 @@
+# source-sha256: ff5ea3129f9914746dd015642fae762d3110654d565e755961c089ddee984c07
+# tool: run   captured: 2026-11-17 02:34 PST on Linux x86_64, cc (GCC) 16.2.1 20260810
+# Addresses, PIDs and thread ids will differ on your run.
+FAIL main.c:37: two points with the same kind and value are equal
+FAIL main.c:38: and equality does not depend on the order
+FAIL main.c:73: a point built elsewhere is found in the table
+s02-e05-struct-compare: 3 check(s) failed
+make[1]: *** [../../../common.mk:131: run] Error 1
+# exit status: 2

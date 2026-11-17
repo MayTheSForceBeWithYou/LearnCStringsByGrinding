@@ -1,0 +1,9 @@
+strlen.empty = 0
+strnlen.zero = 0
+strnlen.full_field = 4
+strlen.in_iso_c = yes
+strnlen.in_iso_c = no
+strnlen.macro = _POSIX_C_SOURCE
+strnlen.macro_value = 200809L
+strnlen.header = string.h
+strlen.return_type = size_t

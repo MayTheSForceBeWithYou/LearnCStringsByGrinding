@@ -1,0 +1,26 @@
+# source-sha256: b67049662200128c5cb9be01e16169e2d83452d39012706630230f5304c2de86
+# tool: warn   captured: 2026-11-16 21:17 PST on Linux x86_64, cc (GCC) 16.2.1 20260810
+# Addresses, PIDs and thread ids will differ on your run.
+warn.c: In function ‘set_code’:
+warn.c:21:5: warning: ‘strncpy’ output truncated before terminating nul copying 6 bytes from a string of the same length [-Wstringop-truncation]
+   21 |     strncpy(code, "ABCDEF", 6);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~
+warn.c: In function ‘set_name’:
+warn.c:15:5: warning: ‘strncpy’ specified bound 12 equals destination size [-Wstringop-truncation]
+   15 |     strncpy(m->name, name, sizeof m->name);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+warn.c: In function ‘greeting_length’:
+warn.c:28:5: warning: ‘__builtin_memcpy’ forming offset [12, 23] is out of the bounds [0, 12] of object ‘small’ with type ‘char[12]’ [-Warray-bounds=]
+   28 |     strcpy(small, "a name that is too long");
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+warn.c:27:10: note: ‘small’ declared here
+   27 |     char small[12];
+      |          ^~~~~
+warn.c: In function ‘set_label’:
+warn.c:35:32: warning: ‘%s’ directive output truncated writing 10 bytes into a region of size 8 [-Wformat-truncation=]
+   35 |     return snprintf(label, 8, "%s", "abcdefghij");
+      |                                ^~   ~~~~~~~~~~~~
+warn.c:35:12: note: ‘snprintf’ output 11 bytes into a destination of size 8
+   35 |     return snprintf(label, 8, "%s", "abcdefghij");
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# exit status: 0

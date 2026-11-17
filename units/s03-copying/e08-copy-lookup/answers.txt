@@ -1,0 +1,31 @@
+# s03-e08-copy-lookup
+#
+# One answer per line: key = value. Answer from the manual pages. The README says which
+# page and which section to read for each key, and what values are allowed.
+
+# What does strcpy return?  dst | end      (end = a pointer to the terminator it wrote)
+strcpy.returns =
+
+# What does stpcpy return?  dst | end
+stpcpy.returns =
+
+# strncpy(buf, "ab", 6): are bytes 2..5 of buf set to NUL?  yes | no
+strncpy.pads =
+
+# strncpy(buf, "abcdef", 6): is there a NUL anywhere in the 6 bytes written?  yes | no
+strncpy.terminates_full =
+
+# stpncpy(buf, "abcdef", 6) returns buf + how many?  (an integer)
+stpncpy.full_offset =
+
+# Which header declares strcpy?  (the file name only, for example stdio.h)
+strcpy.header =
+
+# May the src and dst passed to strcpy overlap?  yes | no
+strcpy.overlap_allowed =
+
+# Is stpcpy part of ISO C17 (as opposed to POSIX only)?  yes | no
+stpcpy.iso_c17 =
+
+# Does strncpy's return value tell the caller that the copy was truncated?  yes | no
+strncpy.reports_truncation =

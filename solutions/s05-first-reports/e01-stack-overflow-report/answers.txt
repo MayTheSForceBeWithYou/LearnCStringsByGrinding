@@ -1,0 +1,10 @@
+access.kind = write
+access.size = 13
+buffer.name = tag
+buffer.where = stack
+buffer.size = 8
+decl.line = 25
+fault.file = main.c
+fault.line = 20
+frame1.function = copy_into
+overflow.bytes = 5

@@ -1,0 +1,40 @@
+# s05-e05-silent-corruption
+#
+# One answer per line: key = value. Fill in every line, then run `make check`.
+#
+# The struct:
+#
+#     typedef struct { char user[8]; char role[8]; } Account;
+#
+# account_init sets user to "" and role to "guest"; account_set_user copies a name
+# into user with strcpy, which has no bound.
+#
+#   .bytes   all bytes of the struct in byte notation, no spaces: a character as
+#            itself, a zero byte as \0
+#   .role, .user   the string you would get by reading that field
+#   integers as decimals; 1 for yes and 0 for no
+#
+# Two worked examples (not graded, shown in the README):
+#   a 2-character name:   user is "ab", the struct is  ab\0\0\0\0\0\0guest\0\0\0
+#   offsetof(Account, user) = 0
+
+# The layout, which the compiler decides
+struct.size =
+user.offset =
+role.offset =
+
+# account_set_user(&a, "ada") after account_init
+fits.bytes =
+fits.role =
+
+# account_set_user(&a, "abcdefg"): seven characters into an eight-byte field
+exact.role =
+
+# account_set_user(&a, "abcdefgh"): eight characters into an eight-byte field
+over1.bytes =
+over1.role_len =
+
+# account_set_user(&a, "mallory_admin")
+attack.user =
+attack.role =
+attack.is_admin =

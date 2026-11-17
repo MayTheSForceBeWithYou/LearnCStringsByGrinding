@@ -1,0 +1,9 @@
+memcpy.returns = dst
+memmove.returns = dst
+memchr.not_found = null
+memcmp.zero_n = 0
+memcpy.restrict = yes
+memmove.restrict = no
+memcpy.overlap_ok = no
+memcmp.compares_as = unsigned char
+memset.converts_to = unsigned char

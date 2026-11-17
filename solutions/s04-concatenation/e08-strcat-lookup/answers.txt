@@ -1,0 +1,9 @@
+strcat.returns = dst
+strncat.result = abcd
+strncat.bytes_written = 3
+strncat.short_src = abcd
+strcat.need = 9
+strncat.need = 6
+strncat.max_bytes = 5
+strncat.reports_truncation = no
+strlcat.in_posix_2008 = no

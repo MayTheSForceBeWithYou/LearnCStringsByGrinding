@@ -1,0 +1,12 @@
+# source-sha256: 2b05d1c0674d7b5ea48c29f11a62572da37b38db082327ac80a8a2aeb156a864
+# tool: warn   captured: 2026-11-17 02:40 PST on Linux x86_64, cc (GCC) 16.2.1 20260810
+# Addresses, PIDs and thread ids will differ on your run.
+warn.c: In function ‘clear_point’:
+warn.c:15:5: warning: ‘memset’ used with constant zero length parameter; this could be due to transposed parameters [-Wmemset-transposed-args]
+   15 |     memset(p, sizeof *p, 0);
+      |     ^~~~~~
+warn.c: In function ‘clear_through’:
+warn.c:27:25: warning: argument to ‘sizeof’ in ‘memset’ call is the same expression as the destination; did you mean to provide an explicit length? [-Wsizeof-pointer-memaccess]
+   27 |     memset(p, 0, sizeof p);
+      |                         ^
+# exit status: 0

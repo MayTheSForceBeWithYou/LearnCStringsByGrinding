@@ -1,0 +1,15 @@
+# source-sha256: 2b05d1c0674d7b5ea48c29f11a62572da37b38db082327ac80a8a2aeb156a864
+# tool: warn   captured: 2026-11-17 02:40 PST on Linux x86_64, clang version 23.1.4
+# Addresses, PIDs and thread ids will differ on your run.
+warn.c:15:26: warning: 'size' argument to memset is '0'; did you mean to transpose the last two arguments? [-Wmemset-transposed-args]
+   15 |     memset(p, sizeof *p, 0);
+      |                          ^
+warn.c:15:26: note: parenthesize the third argument to silence
+warn.c:27:25: warning: 'memset' call operates on objects of type 'char' while the size is based on a different type 'char *' [-Wsizeof-pointer-memaccess]
+   27 |     memset(p, 0, sizeof p);
+      |            ~            ^
+warn.c:27:25: note: did you mean to provide an explicit length?
+   27 |     memset(p, 0, sizeof p);
+      |                         ^
+2 warnings generated.
+# exit status: 0

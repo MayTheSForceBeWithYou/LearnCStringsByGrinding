@@ -1,0 +1,8 @@
+# source-sha256: 1bf87f5859cb522cf2031fad9f950b1b85fc927f548f5ce20b8e0971565c603e
+# tool: run   captured: 2026-11-17 03:09 PST on Linux x86_64, cc (GCC) 16.2.1 20260810
+# Addresses, PIDs and thread ids will differ on your run.
+FAIL main.c:107: join_words costs at most 50 linear passes (no rescanning the destination)
+       reference 0.0004 s, join_words 0.1435 s, budget 0.0233 s
+s04-e03-shlemiel: 1 check(s) failed
+make[1]: *** [../../../common.mk:131: run] Error 1
+# exit status: 2

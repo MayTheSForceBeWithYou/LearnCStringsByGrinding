@@ -1,0 +1,31 @@
+# s02-e08-mem-lookup
+#
+# One answer per line: key = value. Answer from the manual pages. The README says which
+# page and which section to read for each key, and what values are allowed.
+
+# What does memcpy return?  dst | other
+memcpy.returns =
+
+# What does memmove return?  dst | other
+memmove.returns =
+
+# What does memchr return when the byte is not among the n?  null | other
+memchr.not_found =
+
+# What does memcmp return when n is 0?  (an integer)
+memcmp.zero_n =
+
+# Are memcpy's two pointer parameters restrict-qualified in the SYNOPSIS?  yes | no
+memcpy.restrict =
+
+# Are memmove's?  yes | no
+memmove.restrict =
+
+# May the two memory areas passed to memcpy overlap?  yes | no
+memcpy.overlap_ok =
+
+# As which type does memcmp compare the bytes?  (the type name, two words)
+memcmp.compares_as =
+
+# To which type does memset convert its value argument?  (the type name, two words)
+memset.converts_to =

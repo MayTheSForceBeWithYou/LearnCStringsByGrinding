@@ -1,0 +1,49 @@
+# source-sha256: c039bdfc11d1bc009ef9411008c639efee6680793469f9a10327f71b12dc1c24
+# tool: asan   captured: 2026-11-17 02:08 PST on Linux x86_64, cc (GCC) 16.2.1 20260810
+# Addresses, PIDs and thread ids will differ on your run.
+=================================================================
+==1761516==ERROR: AddressSanitizer: global-buffer-overflow on address 0x5e92f12f4a64 at pc 0x70c15ca8841c bp 0x7ffe11009470 sp 0x7ffe11008c28
+READ of size 5 at 0x5e92f12f4a64 thread T0
+    #0 0x70c15ca8841b  (/usr/lib/libasan.so.8+0x8841b) (BuildId: b8a4241051a1621937fdc46e867ba7ecb56d96ea)
+    #1 0x5e92f12eb4fb in len_of /home/n8/dev/c/LearnCStringsByGrinding/units/s01-length/lesson-demo/main.c:18
+    #2 0x5e92f12ebb13 in main /home/n8/dev/c/LearnCStringsByGrinding/units/s01-length/lesson-demo/main.c:64
+    #3 0x70c15be27780  (/usr/lib/libc.so.6+0x27780) (BuildId: d320029ad1a23be2f4bce117fd321cbd23a2014b)
+    #4 0x70c15be278b8 in __libc_start_main (/usr/lib/libc.so.6+0x278b8) (BuildId: d320029ad1a23be2f4bce117fd321cbd23a2014b)
+    #5 0x5e92f12eb3f4 in _start (/home/n8/dev/c/LearnCStringsByGrinding/units/s01-length/lesson-demo/build/asan/prog+0xc3f4) (BuildId: 7e96594cbfb19eec650b2ba9d1cccb75f38dbe9c)
+
+0x5e92f12f4a64 is located 0 bytes after global variable 'field4' defined in 'main.c:45:23' (0x5e92f12f4a60) of size 4
+SUMMARY: AddressSanitizer: global-buffer-overflow /home/n8/dev/c/LearnCStringsByGrinding/units/s01-length/lesson-demo/main.c:18 in len_of
+Shadow bytes around the buggy address:
+  0x5e92f12f4780: f9 f9 f9 f9 04 f9 f9 f9 f9 f9 f9 f9 00 00 00 00
+  0x5e92f12f4800: 03 f9 f9 f9 f9 f9 f9 f9 03 f9 f9 f9 f9 f9 f9 f9
+  0x5e92f12f4880: 00 00 00 00 00 00 00 00 f9 f9 f9 f9 00 00 00 00
+  0x5e92f12f4900: 06 f9 f9 f9 f9 f9 f9 f9 00 00 00 00 00 00 f9 f9
+  0x5e92f12f4980: f9 f9 f9 f9 00 00 00 00 00 00 f9 f9 f9 f9 f9 f9
+=>0x5e92f12f4a00: 00 00 00 00 00 00 f9 f9 f9 f9 f9 f9[04]f9 f9 f9
+  0x5e92f12f4a80: f9 f9 f9 f9 00 00 00 00 00 00 00 00 00 00 00 00
+  0x5e92f12f4b00: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x5e92f12f4b80: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x5e92f12f4c00: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x5e92f12f4c80: 00 05 f9 f9 f9 f9 f9 f9 00 00 00 00 00 00 05 f9
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+==1761516==ABORTING
+make[1]: *** [../../../common.mk:135: asan] Error 134
+# exit status: 2

@@ -1,0 +1,21 @@
+# source-sha256: d595adbfb03fff49e8d081c4ad58b9ba1064fd9a291a5de4dc102b84702b2052
+# tool: warn   captured: 2026-11-16 22:44 PST on Linux x86_64, clang version 23.1.4
+# Addresses, PIDs and thread ids will differ on your run.
+warn.c:8:16: warning: initializer-string for character array is too long, array size is 3 but initializer has size 4 (including the null terminating character); did you mean to use the 'nonstring' attribute? [-Wunterminated-string-initialization]
+    8 | char code[3] = "abc";
+      |                ^~~~~
+warn.c:13:25: warning: 'memset' call operates on objects of type 'char' while the size is based on a different type 'char *' [-Wsizeof-pointer-memaccess]
+   13 |     memset(p, 0, sizeof p);
+      |            ~            ^
+warn.c:13:25: note: did you mean to provide an explicit length?
+   13 |     memset(p, 0, sizeof p);
+      |                         ^
+warn.c:19:20: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+   19 |     return "hello" + 2;
+      |            ~~~~~~~~^~~
+warn.c:19:20: note: use array indexing to silence this warning
+   19 |     return "hello" + 2;
+      |                    ^  
+      |            &       [  ]
+3 warnings generated.
+# exit status: 0

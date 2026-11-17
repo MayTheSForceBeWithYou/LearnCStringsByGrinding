@@ -1,0 +1,5 @@
+# source-sha256: 095b9bc26a519842ba2f112ee41b99d2b245a3d1523ecfd62b6faa85f9354dc4
+# tool: run   captured: 2026-11-16 22:23 PST on Linux x86_64, cc (GCC) 16.2.1 20260810
+# Addresses, PIDs and thread ids will differ on your run.
+make[1]: *** [../../../common.mk:131: run] Error 139
+# exit status: 2

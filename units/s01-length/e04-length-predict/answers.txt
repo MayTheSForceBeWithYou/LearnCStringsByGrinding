@@ -1,0 +1,46 @@
+# s01-e04-length-predict
+#
+# One answer per line: key = value. Fill in every line, then run `make check`.
+# Every answer is one decimal integer, except the last, which may be the word
+# undefined.
+#
+# The five objects:
+#
+#     char a[] = "hello";                  char f[8] = "hi";
+#     char e[] = "ab\0cd";                 const char *p = &a[2];
+#     char full[4] = {'A','1','2','3'};
+#
+# Two worked examples (not graded, shown in the README):
+#   strlen("")           = 0
+#   strnlen("abc", 2)    = 2
+
+# strlen(a), sizeof a
+a.strlen =
+a.sizeof =
+
+# strnlen(a, 0), strnlen(a, 3), strnlen(a, 6)
+a.strnlen0 =
+a.strnlen3 =
+a.strnlen6 =
+
+# strlen(e), sizeof e, strlen(&e[3])
+e.strlen =
+e.sizeof =
+e.tail_strlen =
+
+# strlen(f), sizeof f, strnlen(f, 8)
+f.strlen =
+f.sizeof =
+f.strnlen8 =
+
+# strlen(p), sizeof p
+p.strlen =
+p.sizeof =
+
+# sizeof full, strnlen(full, 4)
+full.sizeof =
+full.strnlen4 =
+
+# strlen(full).  A number, or the word undefined if the standard does not say what
+# the call returns.
+full.strlen =

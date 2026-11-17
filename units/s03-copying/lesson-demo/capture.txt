@@ -1,0 +1,15 @@
+# source-sha256: b67049662200128c5cb9be01e16169e2d83452d39012706630230f5304c2de86
+# tool: run   captured: 2026-11-16 21:17 PST on Linux x86_64, cc (GCC) 16.2.1 20260810
+# Addresses, PIDs and thread ids will differ on your run.
+index:                                 0   1   2   3   4   5   6   7  
+before every call                      #   #   #   #   #   #   #   #    
+strcpy(buf, "hello")                   h   e   l   l   o   \0  #   #    returns buf
+stpcpy(buf, "hello")                   h   e   l   l   o   \0  #   #    returns buf + 5
+strncpy(buf, "hello", 8)               h   e   l   l   o   \0  \0  \0   terminated: yes (5 < 8, padded)
+strncpy(buf, "hello", 5)               h   e   l   l   o   #   #   #    terminated: NO (5 == n)
+strncpy(buf, "hello", 3)               h   e   l   #   #   #   #   #    terminated: NO (5 > n)
+stpncpy(buf, "hey", 8)                 h   e   y   \0  \0  \0  \0  \0   returns buf + 3
+stpncpy(buf, "abcdefgh", 8)            a   b   c   d   e   f   g   h    returns buf + 8 (== buf + n)
+snprintf(buf, 8, "%s", "hello")        h   e   l   l   o   \0  #   #    returns 5
+snprintf(buf, 8, "%s", "abcdefghij")   a   b   c   d   e   f   g   \0   returns 10 (>= 8: truncated)
+# exit status: 0

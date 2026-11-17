@@ -1,0 +1,10 @@
+table.rows = 12
+row.size = 4
+error.kind = global-buffer-overflow
+access.kind = read
+variable.name = months
+variable.file = table.c
+variable.line = 7
+variable.size = 48
+fault.function = month_label
+fault.line = 19

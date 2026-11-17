@@ -1,0 +1,36 @@
+# s04-e08-strcat-lookup
+#
+# One answer per line: key = value. Answer from the manual pages. The README says which
+# page and which section to read for each key, and what values are allowed.
+
+# What does strcat return?  dst | other
+strcat.returns =
+
+# strncat(buf, "cdef", 2) with buf holding "ab": what is in buf afterwards?
+# (the resulting string, with no quotes)
+strncat.result =
+
+# How many BYTES did that call write in all, counting the terminator?  (an integer)
+strncat.bytes_written =
+
+# strncat(buf, "cd", 9) with buf holding "ab": what is in buf afterwards?
+strncat.short_src =
+
+# The page gives a formula for how large strcat's destination buffer must be. For a dst
+# holding 3 characters and a src of 5 characters, what does it give?  (an integer)
+strcat.need =
+
+# The page gives a formula for strncat's destination buffer too. For a dst holding 3
+# characters, a src of 5 characters and ssize (the third argument) 2, what does it
+# give?  (an integer)
+strncat.need =
+
+# At most how many bytes can strncat write in all, if its third argument is 4?
+# (an integer)
+strncat.max_bytes =
+
+# Does strncat's return value tell the caller that the append was truncated?  yes | no
+strncat.reports_truncation =
+
+# Is strlcat part of POSIX.1-2008?  yes | no
+strlcat.in_posix_2008 =

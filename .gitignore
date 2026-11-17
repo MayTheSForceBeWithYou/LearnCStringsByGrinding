@@ -1,0 +1,22 @@
+# Build output: never committed. `make` inside an exercise builds into build/;
+# scripts/verify-all.sh builds outside the tree and removes it.
+build/
+*.o
+*.a
+*.so
+*.dylib
+*.dSYM/
+*.exe
+a.out
+prog
+core
+core.*
+vgcore.*
+# Your repetitions of drills and exercises (scripts/rep.sh).
+reps/
+# Editors and OS.
+*.swp
+*~
+.DS_Store
+.vscode/
+.idea/

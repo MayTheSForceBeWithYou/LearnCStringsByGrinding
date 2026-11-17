@@ -1,0 +1,62 @@
+# source-sha256: d595adbfb03fff49e8d081c4ad58b9ba1064fd9a291a5de4dc102b84702b2052
+# tool: asan   captured: 2026-11-16 22:43 PST on Linux x86_64, cc (GCC) 16.2.1 20260810
+# Addresses, PIDs and thread ids will differ on your run.
+=================================================================
+==1609150==ERROR: AddressSanitizer: stack-buffer-overflow on address 0x7073074d00b4 at pc 0x74730a28841c bp 0x7ffc039627f0 sp 0x7ffc03961fa8
+READ of size 5 at 0x7073074d00b4 thread T0
+    #0 0x74730a28841b  (/usr/lib/libasan.so.8+0x8841b) (BuildId: b8a4241051a1621937fdc46e867ba7ecb56d96ea)
+    #1 0x617643b9fcbe in main /home/n8/dev/c/LearnCStringsByGrinding/units/s00-bytes-and-nul/lesson-demo/main.c:61
+    #2 0x747309627780  (/usr/lib/libc.so.6+0x27780) (BuildId: d320029ad1a23be2f4bce117fd321cbd23a2014b)
+    #3 0x7473096278b8 in __libc_start_main (/usr/lib/libc.so.6+0x278b8) (BuildId: d320029ad1a23be2f4bce117fd321cbd23a2014b)
+    #4 0x617643b9f3e4 in _start (/home/n8/dev/c/LearnCStringsByGrinding/units/s00-bytes-and-nul/lesson-demo/build/asan/prog+0xd3e4) (BuildId: 6e7a1b16fe307ff11521f640913fe00f7da2be31)
+
+Address 0x7073074d00b4 is located in stack of thread T0 at offset 180 in frame
+    #0 0x617643b9f826 in main /home/n8/dev/c/LearnCStringsByGrinding/units/s00-bytes-and-nul/lesson-demo/main.c:46
+
+  This frame has 9 object(s):
+    [48, 72) 'm' (line 55)
+    [112, 113) 'f' (line 53)
+    [128, 131) 'b' (line 49)
+    [144, 148) 'a' (line 47)
+    [160, 164) 'e' (line 52)
+    [176, 180) 'id' (line 58) <== Memory access at offset 180 overflows this variable
+    [192, 197) 'd' (line 51)
+    [224, 230) 'r' (line 54)
+    [256, 264) 'c' (line 50)
+HINT: this may be a false positive if your program uses some custom stack unwind mechanism, swapcontext or vfork
+      (longjmp and C++ exceptions *are* supported)
+SUMMARY: AddressSanitizer: stack-buffer-overflow /home/n8/dev/c/LearnCStringsByGrinding/units/s00-bytes-and-nul/lesson-demo/main.c:61 in main
+Shadow bytes around the buggy address:
+  0x7073074cfe00: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x7073074cfe80: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x7073074cff00: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x7073074cff80: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x7073074d0000: f1 f1 f1 f1 f1 f1 00 00 00 f2 f2 f2 f2 f2 01 f2
+=>0x7073074d0080: 03 f2 04 f2 04 f2[04]f2 05 f2 f2 f2 06 f2 f2 f2
+  0x7073074d0100: 00 f3 f3 f3 f3 f3 f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+  0x7073074d0180: f3 f3 f3 f3 f3 f3 f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+  0x7073074d0200: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x7073074d0280: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x7073074d0300: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+==1609150==ABORTING
+make[1]: *** [../../../common.mk:135: asan] Error 134
+# exit status: 2

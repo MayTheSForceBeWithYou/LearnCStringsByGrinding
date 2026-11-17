@@ -1,0 +1,68 @@
+# s00-e01-literal-sizes
+#
+# One answer per line: key = value. Fill in every line, then run `make check`.
+#
+#   <name>.sizeof   the value of sizeof applied to that declaration's object,
+#                   in bytes, as a decimal integer
+#   <name>.strlen   the length of the string, as a decimal integer, or the word
+#                   undefined if the object is not a string
+#
+# Two worked examples (not graded, shown in the README):
+#   char w[] = "hi";        w.sizeof = 3     w.strlen = 2
+#   const char *z = "hi";   z.sizeof = 8     z.strlen = 2
+
+# char a[] = "abc";                      sizeof a, strlen(a)
+a.sizeof =
+a.strlen =
+
+# const char *p = "abc";                 sizeof p, strlen(p)
+p.sizeof =
+p.strlen =
+
+# char b[3] = {'a', 'b', 'c'};           sizeof b, strlen(b)
+b.sizeof =
+b.strlen =
+
+# char c[8] = "abc";                     sizeof c, strlen(c)
+c.sizeof =
+c.strlen =
+
+# char d[] = "ab" "cd";                  sizeof d, strlen(d)
+d.sizeof =
+d.strlen =
+
+# char e[] = "a\0b";                     sizeof e, strlen(e)
+e.sizeof =
+e.strlen =
+
+# char f[] = "";                         sizeof f, strlen(f)
+f.sizeof =
+f.strlen =
+
+# char g[] = {'h', 'i'};                 sizeof g, strlen(g)
+g.sizeof =
+g.strlen =
+
+# char h[] = {'h', 'i', '\0'};           sizeof h, strlen(h)
+h.sizeof =
+h.strlen =
+
+# char m[3][8] = {"ab", "cd", "ef"};     sizeof m, strlen(m[1])
+m.sizeof =
+m.strlen =
+
+# const char *v[] = {"a", "bb", "ccc"};  sizeof v, strlen(v[2])
+v.sizeof =
+v.strlen =
+
+# const char *q = &"hello"[2];           sizeof q, strlen(q)
+q.sizeof =
+q.strlen =
+
+# char r[] = "caf\xC3\xA9";              sizeof r, strlen(r)
+r.sizeof =
+r.strlen =
+
+# char s[10] = "hi";                     sizeof s, strlen(s)
+s.sizeof =
+s.strlen =

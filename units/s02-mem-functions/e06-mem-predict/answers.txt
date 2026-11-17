@@ -1,0 +1,62 @@
+# s02-e06-mem-predict
+#
+# One answer per line: key = value. Fill in every line, then run `make check`.
+#
+#   cmpNN.sign  the SIGN of what memcmp returns: -1, 0 or 1
+#   chrNN.at    the offset of the byte memchr found, or -1 for NULL
+#   setNN.buf   all 8 bytes of the buffer after the call, in byte notation, no spaces
+#   movNN.buf   the same, after a memmove within one buffer
+#
+# Two worked examples (not graded, shown in the README):
+#   memcmp("ax", "ay", 1)      sign = 0        the difference is past n
+#   memset(buf, 'z', 2)        buf = zz######  two bytes written, six untouched
+
+# memcmp(a, b, n), as sign only
+# cmp01: ("abc", "abc", 3)
+cmp01.sign =
+# cmp02: ("abc", "abd", 3)
+cmp02.sign =
+# cmp03: ("abd", "abc", 3)
+cmp03.sign =
+# cmp04: ("abc", "abd", 2)
+cmp04.sign =
+# cmp05: ("a", "a", 0)
+cmp05.sign =
+# cmp06: ("\x7F", "\x80", 1)
+cmp06.sign =
+# cmp07: ("\xFF", "\x01", 1)
+cmp07.sign =
+# cmp08: ("a\0b", "a\0c", 3)
+cmp08.sign =
+
+# memchr over the six bytes  a b \0 c b d
+# chr01: memchr(hay, 'b', 6)
+chr01.at =
+# chr02: memchr(hay, 'b', 1)
+chr02.at =
+# chr03: memchr(hay, 'b', 0)
+chr03.at =
+# chr04: memchr(hay, '\0', 6)
+chr04.at =
+# chr05: memchr(hay, 'd', 6)
+chr05.at =
+# chr06: memchr(hay, 'z', 6)
+chr06.at =
+
+# memset into an 8-byte buffer holding ########
+# set01: memset(buf, 0x141, 4)
+set01.buf =
+# set02: memset(buf, -1, 2)
+set02.buf =
+# set03: memset(buf, 'x', 0)
+set03.buf =
+
+# memmove inside one 8-byte buffer holding abcdefgh
+# mov01: memmove(buf + 2, buf, 6)
+mov01.buf =
+# mov02: memmove(buf, buf + 2, 6)
+mov02.buf =
+# mov03: memmove(buf + 1, buf, 7)
+mov03.buf =
+# mov04: memmove(buf, buf, 8)
+mov04.buf =

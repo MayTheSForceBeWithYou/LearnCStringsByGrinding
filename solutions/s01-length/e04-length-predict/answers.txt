@@ -1,0 +1,16 @@
+a.strlen = 5
+a.sizeof = 6
+a.strnlen0 = 0
+a.strnlen3 = 3
+a.strnlen6 = 5
+e.strlen = 2
+e.sizeof = 6
+e.tail_strlen = 2
+f.strlen = 2
+f.sizeof = 8
+f.strnlen8 = 2
+p.strlen = 3
+p.sizeof = 8
+full.sizeof = 4
+full.strnlen4 = 4
+full.strlen = undefined

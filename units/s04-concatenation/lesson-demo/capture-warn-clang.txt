@@ -1,0 +1,12 @@
+# source-sha256: 4e91066190300f0216ad6a419356eff7a2bfdc294f39001890e09e1bb60c68fe
+# tool: warn   captured: 2026-11-17 03:19 PST on Linux x86_64, clang version 23.1.4
+# Addresses, PIDs and thread ids will differ on your run.
+warn.c:12:23: warning: the value of the size argument in 'strncat' is too large, might lead to a buffer overflow [-Wstrncat-size]
+   12 |     strncat(buf, src, sizeof buf);
+      |                       ^~~~~~~~~~
+warn.c:12:23: note: change the argument to be the free space in the destination buffer minus the terminating null byte
+   12 |     strncat(buf, src, sizeof buf);
+      |                       ^~~~~~~~~~
+      |                       sizeof(buf) - strlen(buf) - 1
+1 warning generated.
+# exit status: 0

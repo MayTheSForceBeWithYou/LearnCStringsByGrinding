@@ -1,0 +1,9 @@
+# source-sha256: de27258718983045b179a45b62d9fbd1a2404b6b2f88ceac01f43f33c403e1bd
+# tool: run   captured: 2026-11-17 07:15 PST on Linux x86_64, cc (GCC) 16.2.1 20260810
+# Addresses, PIDs and thread ids will differ on your run.
+before: \0\0\0\0\0\0\0\0guest\0\0\0
+after:  mallory_admin\0\0\0
+user:   mallory_admin
+role:   admin
+is admin: yes
+# exit status: 0

@@ -1,0 +1,76 @@
+# s04-e06-room-predict
+#
+# One answer per line: key = value. Fill in every line, then run `make check`.
+#
+#   callNN.buf    all 8 bytes of the buffer after the call, in byte notation, no
+#                 spaces: a character as itself, the terminator as \0, a byte the call
+#                 did not write as #
+#   callNN.ret    strcat, strncat: the offset of the returned pointer from buf
+#                 snprintf:        the int it returned
+#                 the strlcat-style call: the size_t it returned
+#   callNN.room   how many more CHARACTERS would now fit in the 8-byte buffer:
+#                 8 - strlen(buf) - 1
+#
+# Two worked examples (not graded, shown in the README):
+#   strcat(buf, "x")   on  ab\0#####   buf = abx\0####   ret = 0   room = 5
+#   snprintf(buf, 8, "%s%s", "ab", "x")                  ret = 3   room = 5
+
+# call01: strcat(buf, "cd")            buf was ab\0#####
+call01.buf =
+call01.ret =
+call01.room =
+
+# call02: strcat(buf, "g")             buf was abcdef\0#
+call02.buf =
+call02.ret =
+call02.room =
+
+# call03: strncat(buf, "cdefgh", 3)    buf was ab\0#####
+call03.buf =
+call03.ret =
+call03.room =
+
+# call04: strncat(buf, "cd", 5)        buf was ab\0#####
+call04.buf =
+call04.ret =
+call04.room =
+
+# call05: strncat(buf, "cdefgh", 5)    buf was ab\0#####
+call05.buf =
+call05.ret =
+call05.room =
+
+# call06: strncat(buf, "gh", 1)        buf was abcdef\0#
+call06.buf =
+call06.ret =
+call06.room =
+
+# call07: snprintf(buf, 8, "%s%s", "ab", "cd")        buf was ab\0#####
+call07.buf =
+call07.ret =
+call07.room =
+
+# call08: snprintf(buf, 8, "%s%s", "ab", "cdefghij")  buf was ab\0#####
+call08.buf =
+call08.ret =
+call08.room =
+
+# call09: snprintf(buf, 8, "%s%s", "abcdefg", "h")    buf was abcdefg\0
+call09.buf =
+call09.ret =
+call09.room =
+
+# call10: the strlcat-style append of "cd"            buf was ab\0#####
+call10.buf =
+call10.ret =
+call10.room =
+
+# call11: the strlcat-style append of "cdefghij"      buf was ab\0#####
+call11.buf =
+call11.ret =
+call11.room =
+
+# call12: the strlcat-style append of "h"             buf was abcdefg\0
+call12.buf =
+call12.ret =
+call12.room =

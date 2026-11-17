@@ -1,0 +1,60 @@
+# source-sha256: 2b36329b3980060fd16a456a662864b6808219519ba23f4a801949581149041b
+# tool: asan   captured: 2026-11-17 03:10 PST on Linux x86_64, cc (GCC) 16.2.1 20260810
+# Addresses, PIDs and thread ids will differ on your run.
+=================================================================
+==1935316==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x77bd6dce0098 at pc 0x7b9d6fb2466a bp 0x7ffc9b6f17c0 sp 0x7ffc9b6f0f68
+WRITE of size 3 at 0x77bd6dce0098 thread T0
+    #0 0x7b9d6fb24669 in strncat (/usr/lib/libasan.so.8+0x124669) (BuildId: b8a4241051a1621937fdc46e867ba7ecb56d96ea)
+    #1 0x6531b6126dc3 in append_n /home/n8/dev/c/LearnCStringsByGrinding/units/s04-concatenation/e04-strncat-size/label.c:9
+    #2 0x6531b6126e47 in label_append /home/n8/dev/c/LearnCStringsByGrinding/units/s04-concatenation/e04-strncat-size/label.c:17
+    #3 0x6531b6126912 in append_case /home/n8/dev/c/LearnCStringsByGrinding/units/s04-concatenation/e04-strncat-size/main.c:19
+    #4 0x6531b6126b3f in main /home/n8/dev/c/LearnCStringsByGrinding/units/s04-concatenation/e04-strncat-size/main.c:45
+    #5 0x7b9d6ee27780  (/usr/lib/libc.so.6+0x27780) (BuildId: d320029ad1a23be2f4bce117fd321cbd23a2014b)
+    #6 0x7b9d6ee278b8 in __libc_start_main (/usr/lib/libc.so.6+0x278b8) (BuildId: d320029ad1a23be2f4bce117fd321cbd23a2014b)
+    #7 0x6531b61263e4 in _start (/home/n8/dev/c/LearnCStringsByGrinding/units/s04-concatenation/e04-strncat-size/build/asan/prog+0xd3e4) (BuildId: e80a17a24d1aaace5718449390f5fae6287a5ef6)
+
+0x77bd6dce0098 is located 0 bytes after 8-byte region [0x77bd6dce0090,0x77bd6dce0098)
+allocated by thread T0 here:
+    #0 0x7b9d6fb2c0c1 in malloc (/usr/lib/libasan.so.8+0x12c0c1) (BuildId: b8a4241051a1621937fdc46e867ba7ecb56d96ea)
+    #1 0x6531b612afa2 in guard_new /home/n8/dev/c/LearnCStringsByGrinding/lib/guard.c:55
+    #2 0x6531b6126883 in append_case /home/n8/dev/c/LearnCStringsByGrinding/units/s04-concatenation/e04-strncat-size/main.c:16
+    #3 0x6531b6126b3f in main /home/n8/dev/c/LearnCStringsByGrinding/units/s04-concatenation/e04-strncat-size/main.c:45
+    #4 0x7b9d6ee27780  (/usr/lib/libc.so.6+0x27780) (BuildId: d320029ad1a23be2f4bce117fd321cbd23a2014b)
+    #5 0x7b9d6ee278b8 in __libc_start_main (/usr/lib/libc.so.6+0x278b8) (BuildId: d320029ad1a23be2f4bce117fd321cbd23a2014b)
+    #6 0x6531b61263e4 in _start (/home/n8/dev/c/LearnCStringsByGrinding/units/s04-concatenation/e04-strncat-size/build/asan/prog+0xd3e4) (BuildId: e80a17a24d1aaace5718449390f5fae6287a5ef6)
+
+SUMMARY: AddressSanitizer: heap-buffer-overflow /home/n8/dev/c/LearnCStringsByGrinding/units/s04-concatenation/e04-strncat-size/label.c:9 in append_n
+Shadow bytes around the buggy address:
+  0x77bd6dcdfe00: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x77bd6dcdfe80: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x77bd6dcdff00: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x77bd6dcdff80: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x77bd6dce0000: fa fa fd fa fa fa fd fa fa fa fd fa fa fa fd fa
+=>0x77bd6dce0080: fa fa 00[fa]fa fa fa fa fa fa fa fa fa fa fa fa
+  0x77bd6dce0100: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x77bd6dce0180: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x77bd6dce0200: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x77bd6dce0280: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x77bd6dce0300: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+==1935316==ABORTING
+make[1]: *** [../../../common.mk:135: asan] Error 134
+# exit status: 2

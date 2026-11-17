@@ -1,0 +1,9 @@
+error.kind = memcpy-param-overlap
+range.size = 27
+gap.bytes = 4
+overlap.bytes = 23
+fault.file = text.c
+fault.line = 16
+fix.function = memmove
+forward_loop_ok = yes
+move.bytes = 27

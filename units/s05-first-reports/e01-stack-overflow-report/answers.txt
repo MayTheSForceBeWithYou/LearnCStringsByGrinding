@@ -1,0 +1,34 @@
+# s05-e01-stack-overflow-report
+#
+# Answer from capture.txt and the source, BEFORE running anything. One answer per
+# line: key = value. The README says where in the report each answer lives.
+
+# Did the bad access read memory or write it?  read | write
+access.kind =
+
+# How many bytes did that one access touch?  (an integer, from the report)
+access.size =
+
+# The name of the variable the report blames.  (the identifier only)
+buffer.name =
+
+# Which kind of storage is it in?  stack | heap | global
+buffer.where =
+
+# How many bytes does that variable have?  (an integer)
+buffer.size =
+
+# The line number where it is declared.  (an integer)
+decl.line =
+
+# The source file of the line that made the bad access.  (the file name only)
+fault.file =
+
+# The line number of that line, in that file.  (an integer)
+fault.line =
+
+# The name of the function in frame #1 of the report.  (the identifier only)
+frame1.function =
+
+# How many bytes past the end of the buffer were written?  (an integer)
+overflow.bytes =

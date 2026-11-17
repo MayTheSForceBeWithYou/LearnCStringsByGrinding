@@ -1,0 +1,16 @@
+# source-sha256: 4e91066190300f0216ad6a419356eff7a2bfdc294f39001890e09e1bb60c68fe
+# tool: warn   captured: 2026-11-17 03:19 PST on Linux x86_64, cc (GCC) 16.2.1 20260810
+# Addresses, PIDs and thread ids will differ on your run.
+warn.c: In function ‘add_tag’:
+warn.c:12:5: warning: ‘strncat’ specified bound 8 equals destination size [-Wstringop-truncation]
+   12 |     strncat(buf, src, sizeof buf);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+warn.c:12:5: warning: ‘strncat’ specified bound 8 equals destination size [-Wstringop-overflow=]
+warn.c: In function ‘greet’:
+warn.c:21:5: warning: ‘__builtin_memcpy’ writing 8 bytes into a region of size 3 [-Wstringop-overflow=]
+   21 |     strcat(small, ", world");
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~
+warn.c:19:10: note: at offset 5 into destination object ‘small’ of size 8
+   19 |     char small[8] = "hello";
+      |          ^~~~~
+# exit status: 0

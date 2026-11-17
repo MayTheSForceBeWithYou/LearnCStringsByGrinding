@@ -1,0 +1,18 @@
+# source-sha256: de27258718983045b179a45b62d9fbd1a2404b6b2f88ceac01f43f33c403e1bd
+# tool: warn   captured: 2026-11-17 07:15 PST on Linux x86_64, clang version 23.1.4
+# Addresses, PIDs and thread ids will differ on your run.
+warn.c:12:5: warning: 'strcpy' will always overflow; destination buffer has size 8, but the source string has length 23 (including NUL byte) [-Wfortify-source]
+   12 |     strcpy(small, "a much longer greeting");
+      |     ^
+warn.c:19:33: warning: format specifies type 'int' but the argument has type 'size_t' (aka 'unsigned long') [-Wformat]
+   19 |     return printf("%d items\n", n);
+      |                    ~~           ^
+      |                    %zu
+warn.c:25:25: warning: 'memset' call operates on objects of type 'char' while the size is based on a different type 'char *' [-Wsizeof-pointer-memaccess]
+   25 |     memset(p, 0, sizeof p);
+      |            ~            ^
+warn.c:25:25: note: did you mean to provide an explicit length?
+   25 |     memset(p, 0, sizeof p);
+      |                         ^
+3 warnings generated.
+# exit status: 0

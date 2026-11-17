@@ -1,0 +1,10 @@
+field.width = 6
+dup.bytes = 7
+error.kind = heap-buffer-overflow
+access.kind = read
+access.size = 7
+region.size = 6
+fault.function = main
+fault.line = 28
+alloc.function = record_code_dup
+alloc.line = 21

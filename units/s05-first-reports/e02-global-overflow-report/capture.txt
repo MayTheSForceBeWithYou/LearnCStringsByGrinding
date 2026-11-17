@@ -1,0 +1,53 @@
+# source-sha256: 7c8e00bba88f08a04c8285cffb71c192184a8495fc089ba2ee0b93b98496382c
+# tool: asan   captured: 2026-11-17 07:09 PST on Linux x86_64, cc (GCC) 16.2.1 20260810
+# Addresses, PIDs and thread ids will differ on your run.
+=================================================================
+==2092484==ERROR: AddressSanitizer: global-buffer-overflow on address 0x6443bed46490 at pc 0x7143920d0192 bp 0x7ffe1db0bc60 sp 0x7ffe1db0b3d8
+READ of size 1 at 0x6443bed46490 thread T0
+    #0 0x7143920d0191  (/usr/lib/libasan.so.8+0xd0191) (BuildId: b8a4241051a1621937fdc46e867ba7ecb56d96ea)
+    #1 0x7143920f17ce in vsnprintf (/usr/lib/libasan.so.8+0xf17ce) (BuildId: b8a4241051a1621937fdc46e867ba7ecb56d96ea)
+    #2 0x7143920f3c65 in snprintf (/usr/lib/libasan.so.8+0xf3c65) (BuildId: b8a4241051a1621937fdc46e867ba7ecb56d96ea)
+    #3 0x6443bed3e8fc in month_label /home/n8/dev/c/LearnCStringsByGrinding/units/s05-first-reports/e02-global-overflow-report/table.c:19
+    #4 0x6443bed3e630 in main /home/n8/dev/c/LearnCStringsByGrinding/units/s05-first-reports/e02-global-overflow-report/main.c:23
+    #5 0x714391427780  (/usr/lib/libc.so.6+0x27780) (BuildId: d320029ad1a23be2f4bce117fd321cbd23a2014b)
+    #6 0x7143914278b8 in __libc_start_main (/usr/lib/libc.so.6+0x278b8) (BuildId: d320029ad1a23be2f4bce117fd321cbd23a2014b)
+    #7 0x6443bed3e3e4 in _start (/home/n8/dev/c/LearnCStringsByGrinding/units/s05-first-reports/e02-global-overflow-report/build/asan/prog+0xc3e4) (BuildId: 9a33c53c7271aaae2607e80a819e5ff03e59bc9a)
+
+0x6443bed46490 is located 48 bytes before global variable '*.LC0' defined in 'table.c' (0x6443bed464c0) of size 8
+  '*.LC0' is ascii string 'table.c'
+0x6443bed46490 is located 0 bytes after global variable 'months' defined in 'table.c:7:19' (0x6443bed46460) of size 48
+SUMMARY: AddressSanitizer: global-buffer-overflow /home/n8/dev/c/LearnCStringsByGrinding/units/s05-first-reports/e02-global-overflow-report/table.c:19 in month_label
+Shadow bytes around the buggy address:
+  0x6443bed46200: 00 06 f9 f9 f9 f9 f9 f9 00 06 f9 f9 f9 f9 f9 f9
+  0x6443bed46280: 00 06 f9 f9 f9 f9 f9 f9 00 06 f9 f9 f9 f9 f9 f9
+  0x6443bed46300: 00 07 f9 f9 f9 f9 f9 f9 00 03 f9 f9 f9 f9 f9 f9
+  0x6443bed46380: 00 00 00 07 f9 f9 f9 f9 00 00 00 00 00 00 00 00
+  0x6443bed46400: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+=>0x6443bed46480: 00 00[f9]f9 f9 f9 f9 f9 00 f9 f9 f9 f9 f9 f9 f9
+  0x6443bed46500: 06 f9 f9 f9 f9 f9 f9 f9 00 00 00 00 00 00 00 00
+  0x6443bed46580: 00 00 00 00 00 05 f9 f9 f9 f9 f9 f9 00 00 00 00
+  0x6443bed46600: 00 00 05 f9 f9 f9 f9 f9 00 00 00 00 00 00 00 00
+  0x6443bed46680: 00 00 01 f9 f9 f9 f9 f9 00 00 00 00 00 00 00 00
+  0x6443bed46700: 00 00 00 00 04 f9 f9 f9 f9 f9 f9 f9 00 00 00 00
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+==2092484==ABORTING
+make[1]: *** [../../../common.mk:135: asan] Error 134
+# exit status: 2

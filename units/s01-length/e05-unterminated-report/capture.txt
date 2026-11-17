@@ -1,0 +1,58 @@
+# source-sha256: da0b17f59a5298df9a5abaa0bc46237c84680be82f1a9120ad0d613a0d810b61
+# tool: asan   captured: 2026-11-17 02:02 PST on Linux x86_64, cc (GCC) 16.2.1 20260810
+# Addresses, PIDs and thread ids will differ on your run.
+=================================================================
+==1755523==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x72c36fee0014 at pc 0x76a371c8841c bp 0x7ffe84268c80 sp 0x7ffe84268438
+READ of size 5 at 0x72c36fee0014 thread T0
+    #0 0x76a371c8841b  (/usr/lib/libasan.so.8+0x8841b) (BuildId: b8a4241051a1621937fdc46e867ba7ecb56d96ea)
+    #1 0x563d3f7554eb in report_width /home/n8/dev/c/LearnCStringsByGrinding/units/s01-length/e05-unterminated-report/main.c:21
+    #2 0x563d3f7555de in main /home/n8/dev/c/LearnCStringsByGrinding/units/s01-length/e05-unterminated-report/main.c:32
+    #3 0x76a371027780  (/usr/lib/libc.so.6+0x27780) (BuildId: d320029ad1a23be2f4bce117fd321cbd23a2014b)
+    #4 0x76a3710278b8 in __libc_start_main (/usr/lib/libc.so.6+0x278b8) (BuildId: d320029ad1a23be2f4bce117fd321cbd23a2014b)
+    #5 0x563d3f7553e4 in _start (/home/n8/dev/c/LearnCStringsByGrinding/units/s01-length/e05-unterminated-report/build/asan/prog+0xc3e4) (BuildId: 2b71056e0bc4aff0dda41546bfe6282f4f667e08)
+
+0x72c36fee0014 is located 0 bytes after 4-byte region [0x72c36fee0010,0x72c36fee0014)
+allocated by thread T0 here:
+    #0 0x76a371d2c0c1 in malloc (/usr/lib/libasan.so.8+0x12c0c1) (BuildId: b8a4241051a1621937fdc46e867ba7ecb56d96ea)
+    #1 0x563d3f75827b in ds_malloc_at /home/n8/dev/c/LearnCStringsByGrinding/lib/dsalloc.c:216
+    #2 0x563d3f7557d6 in field_dup /home/n8/dev/c/LearnCStringsByGrinding/units/s01-length/e05-unterminated-report/dup.c:16
+    #3 0x563d3f7555bd in main /home/n8/dev/c/LearnCStringsByGrinding/units/s01-length/e05-unterminated-report/main.c:28
+    #4 0x76a371027780  (/usr/lib/libc.so.6+0x27780) (BuildId: d320029ad1a23be2f4bce117fd321cbd23a2014b)
+    #5 0x76a3710278b8 in __libc_start_main (/usr/lib/libc.so.6+0x278b8) (BuildId: d320029ad1a23be2f4bce117fd321cbd23a2014b)
+    #6 0x563d3f7553e4 in _start (/home/n8/dev/c/LearnCStringsByGrinding/units/s01-length/e05-unterminated-report/build/asan/prog+0xc3e4) (BuildId: 2b71056e0bc4aff0dda41546bfe6282f4f667e08)
+
+SUMMARY: AddressSanitizer: heap-buffer-overflow /home/n8/dev/c/LearnCStringsByGrinding/units/s01-length/e05-unterminated-report/main.c:21 in report_width
+Shadow bytes around the buggy address:
+  0x72c36fedfd80: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x72c36fedfe00: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x72c36fedfe80: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x72c36fedff00: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x72c36fedff80: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+=>0x72c36fee0000: fa fa[04]fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x72c36fee0080: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x72c36fee0100: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x72c36fee0180: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x72c36fee0200: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x72c36fee0280: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+==1755523==ABORTING
+make[1]: *** [../../../common.mk:135: asan] Error 134
+# exit status: 2

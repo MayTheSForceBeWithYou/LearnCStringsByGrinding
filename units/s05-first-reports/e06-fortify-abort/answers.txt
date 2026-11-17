@@ -1,0 +1,31 @@
+# s05-e06-fortify-abort
+#
+# Answer from capture.txt and the source, BEFORE running anything. One answer per
+# line: key = value. The README says where each answer comes from.
+
+# How many bytes is the buffer the greeting is built in?  (an integer)
+buffer.size =
+
+# What is the longest name that fits in it?  (an integer: the characters of a name,
+# given that the greeting adds "Hello, " and "!")
+fits.longest =
+
+# What stopped the program: the compiler, libc, or AddressSanitizer?
+# compiler | libc | asan
+stopped_by =
+
+# Which signal ended it?  (the macro name, for example SIGSEGV)
+exit.signal =
+
+# What exit status does the shell report for that?  (an integer)
+exit.status =
+
+# Does the message name the source line of the overflowing call?  yes | no
+names.line =
+
+# Does it name the buffer?  yes | no
+names.buffer =
+
+# If this program were built with AddressSanitizer instead, which error kind would it
+# report?  (as ASan spells it, for example heap-buffer-overflow)
+asan_would_say =

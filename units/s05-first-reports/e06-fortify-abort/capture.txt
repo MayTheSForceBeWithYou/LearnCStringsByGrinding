@@ -1,0 +1,6 @@
+# source-sha256: a0ac53b602fe2c39ceb0b89de24e00e2cbc769384014d76c0be1c3c3839cdec3
+# tool: run   captured: 2026-11-17 07:14 PST on Linux x86_64, cc (GCC) 16.2.1 20260810
+# Addresses, PIDs and thread ids will differ on your run.
+*** buffer overflow detected ***: terminated
+make[1]: *** [../../../common.mk:131: run] Error 134
+# exit status: 2

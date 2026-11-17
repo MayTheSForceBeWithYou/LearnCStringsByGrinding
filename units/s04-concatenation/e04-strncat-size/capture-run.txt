@@ -1,0 +1,38 @@
+# source-sha256: 2b36329b3980060fd16a456a662864b6808219519ba23f4a801949581149041b
+# tool: run   captured: 2026-11-17 03:10 PST on Linux x86_64, cc (GCC) 16.2.1 20260810
+# Addresses, PIDs and thread ids will differ on your run.
+FAIL main.c:20: an append of one byte too many
+       got:  abcdefgh\0
+       want: abcdefg\0
+FAIL main.c:21: label_append writes nothing outside the buffer
+FAIL main.c:20: an append far too long
+       got:  abcdefghij\0
+       want: abcdefg\0
+FAIL main.c:21: label_append writes nothing outside the buffer
+FAIL main.c:20: an append onto a full buffer
+       got:  abcdefgh\0
+       want: abcdefg\0
+FAIL main.c:21: label_append writes nothing outside the buffer
+FAIL main.c:31: a label one byte too long
+       got:  warn: disk\0
+       want: warn: dis\0
+FAIL main.c:32: label_build writes nothing outside the buffer
+FAIL main.c:31: a label that is cut in the text
+       got:  warn: disk\0
+       want: warn: d\0
+FAIL main.c:32: label_build writes nothing outside the buffer
+FAIL main.c:31: a label with no room for the separator
+       got:  warn: disk\0
+       want: warn\0
+FAIL main.c:32: label_build writes nothing outside the buffer
+FAIL main.c:31: a label cut inside the kind
+       got:  war: dis\0
+       want: wa\0
+FAIL main.c:32: label_build writes nothing outside the buffer
+FAIL main.c:31: a label with room only for the terminator
+       got:  w:d\0
+       want: \0
+FAIL main.c:32: label_build writes nothing outside the buffer
+s04-e04-strncat-size: 16 check(s) failed
+make[1]: *** [../../../common.mk:131: run] Error 1
+# exit status: 2

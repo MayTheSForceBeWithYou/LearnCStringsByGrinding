@@ -1,0 +1,22 @@
+# source-sha256: d595adbfb03fff49e8d081c4ad58b9ba1064fd9a291a5de4dc102b84702b2052
+# tool: asan   captured: 2026-11-16 22:44 PST on Linux x86_64, cc (GCC) 16.2.1 20260810
+# Addresses, PIDs and thread ids will differ on your run.
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+==1609167==ERROR: AddressSanitizer: SEGV on unknown address 0x579cd98e25c0 (pc 0x579cd98d9e0a bp 0x7ffda8e35fa0 sp 0x7ffda8e35e20 T0)
+==1609167==The signal is caused by a WRITE memory access.
+    #0 0x579cd98d9e0a in main /home/n8/dev/c/LearnCStringsByGrinding/units/s00-bytes-and-nul/lesson-demo/main.c:67
+    #1 0x75e804427780  (/usr/lib/libc.so.6+0x27780) (BuildId: d320029ad1a23be2f4bce117fd321cbd23a2014b)
+    #2 0x75e8044278b8 in __libc_start_main (/usr/lib/libc.so.6+0x278b8) (BuildId: d320029ad1a23be2f4bce117fd321cbd23a2014b)
+    #3 0x579cd98d93e4 in _start (/home/n8/dev/c/LearnCStringsByGrinding/units/s00-bytes-and-nul/lesson-demo/build/asan/prog+0xd3e4) (BuildId: 6e7a1b16fe307ff11521f640913fe00f7da2be31)
+
+==1609167==Register values:
+rax = 0x0000579cd98e25c0  rbx = 0x000071e8022d0140  rcx = 0x0000000000000001  rdx = 0x0000000000000000  
+rdi = 0x0000579cd98d9d98  rsi = 0x0000000000000000  rbp = 0x00007ffda8e35fa0  rsp = 0x00007ffda8e35e20  
+ r8 = 0x00000af39b31c4d8   r9 = 0x00000af41b3144d8  r10 = 0x0000579cd98e26c8  r11 = 0x0000000000000000  
+r12 = 0x00000e3d0045a000  r13 = 0x000071e8022d0000  r14 = 0x00007ffda8e35e40  r15 = 0x0000579cd98e7d00  
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV /home/n8/dev/c/LearnCStringsByGrinding/units/s00-bytes-and-nul/lesson-demo/main.c:67 in main
+==1609167==ABORTING
+make[1]: *** [../../../common.mk:135: asan] Error 134
+# exit status: 2

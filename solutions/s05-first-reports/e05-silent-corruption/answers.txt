@@ -1,0 +1,11 @@
+struct.size = 16
+user.offset = 0
+role.offset = 8
+fits.bytes = ada\0\0\0\0\0guest\0\0\0
+fits.role = guest
+exact.role = guest
+over1.bytes = abcdefgh\0uest\0\0\0
+over1.role_len = 0
+attack.user = mallory_admin
+attack.role = admin
+attack.is_admin = 1

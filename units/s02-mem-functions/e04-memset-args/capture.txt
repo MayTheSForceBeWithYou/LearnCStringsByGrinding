@@ -1,0 +1,20 @@
+# source-sha256: 26a4d7af329178c24b5e5d66759abf9d7e74f4f9447da32e4cfaefa797d84f5b
+# tool: run   captured: 2026-11-17 02:33 PST on Linux x86_64, cc (GCC) 16.2.1 20260810
+# Addresses, PIDs and thread ids will differ on your run.
+FAIL main.c:30: slot_clear zeroes every byte of the slot
+FAIL main.c:31: a cleared slot has id 0
+FAIL main.c:32: a cleared slot has an empty name
+       got:  ZZZZZZZZZZZZ\0
+       want: \0
+FAIL main.c:38: slot_clear_all zeroes every byte of every slot
+FAIL main.c:38: slot_clear_all zeroes every byte of every slot
+FAIL main.c:38: slot_clear_all zeroes every byte of every slot
+FAIL main.c:38: slot_clear_all zeroes every byte of every slot
+FAIL main.c:50: a cleared slot keeps nothing of the record it held
+FAIL main.c:53: and the rest of the name field is still zero
+       got:  al\0imilien\0Z
+       want: al\0\0\0\0\0\0\0\0\0\0
+       first difference at index 3 of 12
+s02-e04-memset-args: 9 check(s) failed
+make[1]: *** [../../../common.mk:131: run] Error 1
+# exit status: 2

@@ -1,0 +1,6 @@
+# source-sha256: e2666a6a289999be473cfcf6d05c8e018854d4055fa3bdcac6f1d155fb2626bc
+# tool: run   captured: 2026-11-17 02:32 PST on Linux x86_64, cc (GCC) 16.2.1 20260810
+# Addresses, PIDs and thread ids will differ on your run.
+before: abcdefghijklmnopqrstuvwxyz0123
+after:  efghijklmnopqrstuvwxyz0123 (length 26)
+# exit status: 0

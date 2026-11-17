@@ -1,0 +1,34 @@
+# source-sha256: 2b05d1c0674d7b5ea48c29f11a62572da37b38db082327ac80a8a2aeb156a864
+# tool: run   captured: 2026-11-17 02:40 PST on Linux x86_64, cc (GCC) 16.2.1 20260810
+# Addresses, PIDs and thread ids will differ on your run.
+what each call leaves in an 8-byte buffer holding ########
+
+  call                             buffer after         note
+  ----                             ------------         ----
+  memset(buf, 'x', 3)              xxx#####             three bytes, the rest untouched
+  memset(buf, 0x141, 4)            AAAA####             0x141 converted to unsigned char: 'A'
+  memset(buf, -1, 2)               \xFF\xFF######       and -1 becomes 0xFF
+  memset(buf, 'x', 0)              ########             n == 0 writes nothing
+  memmove(buf + 2, buf, 6)         ababcdef             dst above src: copied from the end
+  memmove(buf, buf + 2, 6)         cdefghgh             dst below src: copied from the start
+  memmove(buf, buf, 8)             abcdefgh             dst == src: nothing changes
+
+memcmp compares bytes as unsigned char, and promises only a sign
+
+  comparison                     sign   why
+  ----------                     ----   ---
+  memcmp("abc", "abc", 3)           0   equal
+  memcmp("abc", "abd", 3)          -1   'c' < 'd'
+  memcmp("abc", "abd", 2)           0   the difference is past n
+  memcmp("\x7F", "\x80", 1)        -1   0x7F < 0x80 as unsigned char
+  memcmp("\xFF", "\x01", 1)         1   0xFF > 0x01, not negative
+  memcmp(a, b, 0)                   0   no bytes compared
+
+a struct has bytes that are not members
+
+  sizeof(Point)                = 8  (char + int is 5 bytes of members)
+  p, padding zeroed            = p\0\0\0*\0\0\0
+  q, padding 0x5A              = pZZZ*\0\0\0
+  p.kind == q.kind && p.value == q.value : yes
+  memcmp(&p, &q, sizeof p)               : NOT equal
+# exit status: 0

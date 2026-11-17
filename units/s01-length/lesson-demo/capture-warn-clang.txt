@@ -1,0 +1,4 @@
+# source-sha256: c039bdfc11d1bc009ef9411008c639efee6680793469f9a10327f71b12dc1c24
+# tool: warn   captured: 2026-11-17 02:08 PST on Linux x86_64, clang version 23.1.4
+# Addresses, PIDs and thread ids will differ on your run.
+# exit status: 0

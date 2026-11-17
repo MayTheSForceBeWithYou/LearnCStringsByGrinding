@@ -1,0 +1,29 @@
+# source-sha256: de27258718983045b179a45b62d9fbd1a2404b6b2f88ceac01f43f33c403e1bd
+# tool: warn   captured: 2026-11-17 07:15 PST on Linux x86_64, cc (GCC) 16.2.1 20260810
+# Addresses, PIDs and thread ids will differ on your run.
+warn.c: In function ‘count’:
+warn.c:19:21: warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘size_t’ {aka ‘long unsigned int’} [-Wformat=]
+   19 |     return printf("%d items\n", n);
+      |                    ~^           ~
+      |                     |           |
+      |                     int         size_t {aka long unsigned int}
+      |                    %ld
+warn.c: In function ‘clear’:
+warn.c:25:25: warning: argument to ‘sizeof’ in ‘memset’ call is the same expression as the destination; did you mean to provide an explicit length? [-Wsizeof-pointer-memaccess]
+   25 |     memset(p, 0, sizeof p);
+      |                         ^
+warn.c: In function ‘greet’:
+warn.c:12:5: warning: ‘__builtin_memcpy’ forming offset [8, 22] is out of the bounds [0, 8] of object ‘small’ with type ‘char[8]’ [-Warray-bounds=]
+   12 |     strcpy(small, "a much longer greeting");
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+warn.c:10:10: note: ‘small’ declared here
+   10 |     char small[8];
+      |          ^~~~~
+warn.c: In function ‘label’:
+warn.c:33:39: warning: ‘%s’ directive output truncated writing 10 bytes into a region of size 8 [-Wformat-truncation=]
+   33 |     return snprintf(buf, sizeof buf, "%s", "abcdefghij");
+      |                                       ^~   ~~~~~~~~~~~~
+warn.c:33:12: note: ‘snprintf’ output 11 bytes into a destination of size 8
+   33 |     return snprintf(buf, sizeof buf, "%s", "abcdefghij");
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# exit status: 0

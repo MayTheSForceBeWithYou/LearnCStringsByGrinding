@@ -1,0 +1,56 @@
+# source-sha256: b67049662200128c5cb9be01e16169e2d83452d39012706630230f5304c2de86
+# tool: asan   captured: 2026-11-16 21:17 PST on Linux x86_64, cc (GCC) 16.2.1 20260810
+# Addresses, PIDs and thread ids will differ on your run.
+=================================================================
+==1510412==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x79b7f36e0020 at pc 0x7d97f548841c bp 0x7ffc35badaf0 sp 0x7ffc35bad2a8
+READ of size 13 at 0x79b7f36e0020 thread T0
+    #0 0x7d97f548841b  (/usr/lib/libasan.so.8+0x8841b) (BuildId: b8a4241051a1621937fdc46e867ba7ecb56d96ea)
+    #1 0x57d2ffc70dea in main /home/n8/dev/c/LearnCStringsByGrinding/units/s03-copying/lesson-demo/main.c:96
+    #2 0x7d97f4827780  (/usr/lib/libc.so.6+0x27780) (BuildId: d320029ad1a23be2f4bce117fd321cbd23a2014b)
+    #3 0x7d97f48278b8 in __libc_start_main (/usr/lib/libc.so.6+0x278b8) (BuildId: d320029ad1a23be2f4bce117fd321cbd23a2014b)
+    #4 0x57d2ffc70424 in _start (/home/n8/dev/c/LearnCStringsByGrinding/units/s03-copying/lesson-demo/build/asan/prog+0xd424) (BuildId: b179a73ddd77f6c8a672d52425d79cdc684b7635)
+
+0x79b7f36e0020 is located 0 bytes after 16-byte region [0x79b7f36e0010,0x79b7f36e0020)
+allocated by thread T0 here:
+    #0 0x7d97f552c0c1 in malloc (/usr/lib/libasan.so.8+0x12c0c1) (BuildId: b8a4241051a1621937fdc46e867ba7ecb56d96ea)
+    #1 0x57d2ffc738cf in ds_malloc_at /home/n8/dev/c/LearnCStringsByGrinding/lib/dsalloc.c:216
+    #2 0x57d2ffc70c5c in main /home/n8/dev/c/LearnCStringsByGrinding/units/s03-copying/lesson-demo/main.c:91
+    #3 0x7d97f4827780  (/usr/lib/libc.so.6+0x27780) (BuildId: d320029ad1a23be2f4bce117fd321cbd23a2014b)
+    #4 0x7d97f48278b8 in __libc_start_main (/usr/lib/libc.so.6+0x278b8) (BuildId: d320029ad1a23be2f4bce117fd321cbd23a2014b)
+    #5 0x57d2ffc70424 in _start (/home/n8/dev/c/LearnCStringsByGrinding/units/s03-copying/lesson-demo/build/asan/prog+0xd424) (BuildId: b179a73ddd77f6c8a672d52425d79cdc684b7635)
+
+SUMMARY: AddressSanitizer: heap-buffer-overflow /home/n8/dev/c/LearnCStringsByGrinding/units/s03-copying/lesson-demo/main.c:96 in main
+Shadow bytes around the buggy address:
+  0x79b7f36dfd80: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x79b7f36dfe00: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x79b7f36dfe80: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x79b7f36dff00: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x79b7f36dff80: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+=>0x79b7f36e0000: fa fa 00 00[fa]fa fa fa fa fa fa fa fa fa fa fa
+  0x79b7f36e0080: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x79b7f36e0100: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x79b7f36e0180: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x79b7f36e0200: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x79b7f36e0280: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+==1510412==ABORTING
+make[1]: *** [../../../common.mk:135: asan] Error 134
+# exit status: 2

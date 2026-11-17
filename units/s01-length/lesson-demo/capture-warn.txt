@@ -1,0 +1,17 @@
+# source-sha256: c039bdfc11d1bc009ef9411008c639efee6680793469f9a10327f71b12dc1c24
+# tool: warn   captured: 2026-11-17 02:08 PST on Linux x86_64, cc (GCC) 16.2.1 20260810
+# Addresses, PIDs and thread ids will differ on your run.
+warn.c: In function ‘id_length’:
+warn.c:13:19: warning: ‘strlen’ argument missing terminating nul [-Wstringop-overread]
+   13 |     return strlen(id);
+      |                   ^~
+warn.c:8:19: note: referenced argument declared here
+    8 | static const char id[4] = {'A', '1', '2', '3'};
+      |                   ^~
+warn.c:13:19: warning: ‘strlen’ argument missing terminating nul [-Wstringop-overread]
+   13 |     return strlen(id);
+      |                   ^~
+warn.c:8:19: note: referenced argument declared here
+    8 | static const char id[4] = {'A', '1', '2', '3'};
+      |                   ^~
+# exit status: 0

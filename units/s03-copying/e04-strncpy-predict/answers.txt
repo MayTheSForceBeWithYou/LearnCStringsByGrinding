@@ -1,0 +1,53 @@
+# s03-e04-strncpy-predict
+#
+# One answer per line: key = value. Fill in every line, then run `make check`.
+#
+#   callNN.buf   all 8 bytes of the buffer after the call, in byte notation, no spaces:
+#                a character as itself, the terminator as \0, an unwritten byte as #
+#   callNN.ret   strncpy, stpncpy: the offset of the returned pointer from buf
+#                                  (0 means "it returned buf", 3 means "buf + 3")
+#                snprintf:         the integer it returned
+#
+# Two worked examples (not graded, shown in the README):
+#   strncpy(buf, "hi", 8)            buf = hi\0\0\0\0\0\0     ret = 0
+#   snprintf(buf, 8, "%s", "abc")    buf = abc\0####          ret = 3
+
+# strncpy(buf, "hello", 8)
+call01.buf =
+call01.ret =
+
+# strncpy(buf, "hello", 5)
+call02.buf =
+call02.ret =
+
+# strncpy(buf, "hello", 3)
+call03.buf =
+call03.ret =
+
+# strncpy(buf, "", 4)
+call04.buf =
+call04.ret =
+
+# strncpy(buf, "abcdefgh", 8)
+call05.buf =
+call05.ret =
+
+# stpncpy(buf, "hey", 8)
+call06.buf =
+call06.ret =
+
+# stpncpy(buf, "hello", 5)
+call07.buf =
+call07.ret =
+
+# snprintf(buf, 8, "%s", "hello")
+call08.buf =
+call08.ret =
+
+# snprintf(buf, 8, "%s", "abcdefghij")
+call09.buf =
+call09.ret =
+
+# snprintf(buf, 4, "%s", "hello")
+call10.buf =
+call10.ret =

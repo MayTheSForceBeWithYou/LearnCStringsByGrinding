@@ -1,0 +1,8 @@
+buffer.size = 16
+fits.longest = 7
+stopped_by = libc
+exit.signal = SIGABRT
+exit.status = 134
+names.line = no
+names.buffer = no
+asan_would_say = stack-buffer-overflow

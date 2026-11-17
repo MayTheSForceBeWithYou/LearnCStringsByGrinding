@@ -1,0 +1,32 @@
+# s02-e03-overlap-report
+#
+# Answer from capture.txt and the source, BEFORE running anything. One answer per
+# line: key = value. The README says where in the report each answer lives.
+
+# The name AddressSanitizer gives this error, exactly as the report writes it.
+error.kind =
+
+# How many bytes long is each of the two ranges?  (an integer)
+range.size =
+
+# How far apart are the two ranges' first addresses?  (an integer)
+gap.bytes =
+
+# How many bytes do the two ranges have in common?  (an integer)
+overlap.bytes =
+
+# The source file of the call that made the overlapping copy.  (the file name only)
+fault.file =
+
+# The line number of that call, in that file.  (an integer)
+fault.line =
+
+# Which library function should have been called instead?  (the function name only)
+fix.function =
+
+# For THIS copy, would a plain forward byte-by-byte loop (dst[i] = src[i], i rising)
+# have produced the right bytes?  yes | no
+forward_loop_ok =
+
+# How many bytes does this deletion have to move?  (an integer)
+move.bytes =

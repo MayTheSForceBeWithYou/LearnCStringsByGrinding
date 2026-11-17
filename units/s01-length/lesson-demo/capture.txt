@@ -1,0 +1,28 @@
+# source-sha256: c039bdfc11d1bc009ef9411008c639efee6680793469f9a10327f71b12dc1c24
+# tool: run   captured: 2026-11-17 02:08 PST on Linux x86_64, cc (GCC) 16.2.1 20260810
+# Addresses, PIDs and thread ids will differ on your run.
+length against size, and what each function may be asked
+
+  object                     bytes                    strlen   strnlen
+  ------                     -----                    ------   -------
+  char a[] = "hello";        hello\0                       5         5
+  char e[] = "ab\0cd";       ab\0cd\0                      2         2
+  char f[8] = "hi";          hi\0\0\0\0\0\0                2         2
+  char field4[4] = {chars};  A123                   undefined         4
+
+  strnlen is given the object's size; strlen is given nothing but the pointer.
+
+size_t arithmetic at zero
+
+  SIZE_MAX                  = 18446744073709551615
+  strlen("")                = 0
+  strlen("") - 1            = 18446744073709551615
+  (size_t)0 - 1 == SIZE_MAX  : yes
+  0 <= strlen("") - 1        : yes   (the loop that never ends)
+
+a length that does not fit its type
+
+  300 stored in unsigned char, read back  = 44
+  256 stored in unsigned char, read back  = 0
+  255 stored in unsigned char, read back  = 255
+# exit status: 0

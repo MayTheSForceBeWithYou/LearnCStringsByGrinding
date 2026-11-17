@@ -1,0 +1,30 @@
+# source-sha256: e2666a6a289999be473cfcf6d05c8e018854d4055fa3bdcac6f1d155fb2626bc
+# tool: asan   captured: 2026-11-17 02:32 PST on Linux x86_64, cc (GCC) 16.2.1 20260810
+# Addresses, PIDs and thread ids will differ on your run.
+=================================================================
+==1799699==ERROR: AddressSanitizer: memcpy-param-overlap: memory ranges [0x71bb402d0030,0x71bb402d004b) and [0x71bb402d0034, 0x71bb402d004f) overlap
+    #0 0x75bb43329547 in memcpy (/usr/lib/libasan.so.8+0x129547) (BuildId: b8a4241051a1621937fdc46e867ba7ecb56d96ea)
+    #1 0x55df489b29f5 in text_delete /home/n8/dev/c/LearnCStringsByGrinding/units/s02-mem-functions/e03-overlap-report/text.c:16
+    #2 0x55df489b271a in main /home/n8/dev/c/LearnCStringsByGrinding/units/s02-mem-functions/e03-overlap-report/main.c:24
+    #3 0x75bb42627780  (/usr/lib/libc.so.6+0x27780) (BuildId: d320029ad1a23be2f4bce117fd321cbd23a2014b)
+    #4 0x75bb426278b8 in __libc_start_main (/usr/lib/libc.so.6+0x278b8) (BuildId: d320029ad1a23be2f4bce117fd321cbd23a2014b)
+    #5 0x55df489b23e4 in _start (/home/n8/dev/c/LearnCStringsByGrinding/units/s02-mem-functions/e03-overlap-report/build/asan/prog+0xc3e4) (BuildId: 89779a308ec80ac277ab512ac0e8022a38fcaf2b)
+
+Address 0x71bb402d0030 is located in stack of thread T0 at offset 48 in frame
+    #0 0x55df489b24c8 in main /home/n8/dev/c/LearnCStringsByGrinding/units/s02-mem-functions/e03-overlap-report/main.c:17
+
+  This frame has 1 object(s):
+    [48, 88) 'buf' (line 18) <== Memory access at offset 48 is inside this variable
+HINT: this may be a false positive if your program uses some custom stack unwind mechanism, swapcontext or vfork
+      (longjmp and C++ exceptions *are* supported)
+Address 0x71bb402d0034 is located in stack of thread T0 at offset 52 in frame
+    #0 0x55df489b24c8 in main /home/n8/dev/c/LearnCStringsByGrinding/units/s02-mem-functions/e03-overlap-report/main.c:17
+
+  This frame has 1 object(s):
+    [48, 88) 'buf' (line 18) <== Memory access at offset 52 is inside this variable
+HINT: this may be a false positive if your program uses some custom stack unwind mechanism, swapcontext or vfork
+      (longjmp and C++ exceptions *are* supported)
+SUMMARY: AddressSanitizer: memcpy-param-overlap /home/n8/dev/c/LearnCStringsByGrinding/units/s02-mem-functions/e03-overlap-report/text.c:16 in text_delete
+==1799699==ABORTING
+make[1]: *** [../../../common.mk:135: asan] Error 134
+# exit status: 2

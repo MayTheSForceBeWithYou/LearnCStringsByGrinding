@@ -1,0 +1,33 @@
+# s01-e07-strlen-lookup
+#
+# One answer per line: key = value. Answer from the manual pages. The README says which
+# page and which section to read for each key, and what values are allowed.
+
+# What does strlen return for the empty string?  (an integer)
+strlen.empty =
+
+# What does strnlen("abc", 0) return?  (an integer)
+strnlen.zero =
+
+# What does strnlen return for a 4-byte field holding four characters and no
+# terminator?  (an integer)
+strnlen.full_field =
+
+# Is strlen part of ISO C?  yes | no
+strlen.in_iso_c =
+
+# Is strnlen part of ISO C?  yes | no
+strnlen.in_iso_c =
+
+# Which feature-test macro must be defined for glibc to declare strnlen?
+# (the macro's name only)
+strnlen.macro =
+
+# Which value must that macro have, at least?  (as the page writes it)
+strnlen.macro_value =
+
+# Which header declares strnlen?  (the file name only, for example stdio.h)
+strnlen.header =
+
+# What type does strlen return?  (the type name as the SYNOPSIS writes it)
+strlen.return_type =

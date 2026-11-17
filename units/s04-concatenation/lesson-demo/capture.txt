@@ -1,0 +1,24 @@
+# source-sha256: 4e91066190300f0216ad6a419356eff7a2bfdc294f39001890e09e1bb60c68fe
+# tool: run   captured: 2026-11-17 03:19 PST on Linux x86_64, cc (GCC) 16.2.1 20260810
+# Addresses, PIDs and thread ids will differ on your run.
+appending "cd" and "cdefghij" to "ab" in an 8-byte buffer
+
+  call                               buffer after      ret  note
+  ----                               ------------      ---  ----
+  strcat(buf, "cd")                  abcd\0###         buf  no bound at all
+  strncat(buf, "cdefghij", 3)        abcde\0##         buf  3 characters, then a terminator
+  strncat(buf, "cdefghij", 5)        abcdefg\0         buf  5 characters: the buffer is full
+  snprintf(buf, 8, "%s%s", ...)      abcd\0###           4  rebuilds; returns the length
+  snprintf(buf, 8, ... too long)     abcdefg\0          10  truncated: ret >= 8
+  strlcat-style append of "cd"       abcd\0###           4  appends; returns the length
+  strlcat-style, too long            abcdefg\0          10  truncated: ret >= 8
+
+what it costs to append n words of 4 characters, two ways
+
+       words     strcat loop     end pointer  ratio
+       -----     -----------     -----------  -----
+       10000        0.0012 s        0.0000 s      45x
+       20000        0.0063 s        0.0001 s     112x
+       40000        0.0253 s        0.0001 s     186x
+       80000        0.1034 s        0.0006 s     185x
+# exit status: 0

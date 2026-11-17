@@ -1,0 +1,35 @@
+# s01-e05-unterminated-report
+#
+# Answer from capture.txt and the source, BEFORE running anything. One answer per
+# line: key = value. The README says where in the report each answer lives.
+
+# Did the bad access read memory or write it?  read | write
+access.kind =
+
+# How many bytes did that one access touch?  (an integer, from the report)
+access.size =
+
+# How many bytes does the heap block hold?  (an integer, from the report)
+region.size =
+
+# The name of the function in frame #1 of the first stack: the one that made the
+# bad access.  (the identifier only)
+fault.function =
+
+# The file named in the "allocated by" stack, in the first frame that is course code
+# outside lib/.  (the file name only)
+alloc.file =
+
+# The line number in that frame.  (an integer)
+alloc.line =
+
+# The name of the function that contains the defect: the one whose line you would
+# change.  (the identifier only)
+defect.function =
+
+# The name of the function in the same file that already computes the right size.
+# (the identifier only)
+size.function =
+
+# How many bytes should have been allocated for this field?  (an integer)
+malloc.bytes =

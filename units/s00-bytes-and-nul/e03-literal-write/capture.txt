@@ -1,0 +1,25 @@
+# source-sha256: 095b9bc26a519842ba2f112ee41b99d2b245a3d1523ecfd62b6faa85f9354dc4
+# tool: asan   captured: 2026-11-16 22:23 PST on Linux x86_64, cc (GCC) 16.2.1 20260810
+# Addresses, PIDs and thread ids will differ on your run.
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+==1589159==ERROR: AddressSanitizer: SEGV on unknown address 0x6458682ecf80 (pc 0x6458682e40db bp 0x7ffe2857f400 sp 0x7ffe2857f3e0 T0)
+==1589159==The signal is caused by a WRITE memory access.
+    #0 0x6458682e40db in upcase /home/n8/dev/c/LearnCStringsByGrinding/units/s00-bytes-and-nul/e03-literal-write/upcase.c:14
+    #1 0x6458682e425a in prefix_write /home/n8/dev/c/LearnCStringsByGrinding/units/s00-bytes-and-nul/e03-literal-write/prefix.c:30
+    #2 0x6458682e3bbb in prefix_case /home/n8/dev/c/LearnCStringsByGrinding/units/s00-bytes-and-nul/e03-literal-write/main.c:26
+    #3 0x6458682e3d7f in main /home/n8/dev/c/LearnCStringsByGrinding/units/s00-bytes-and-nul/e03-literal-write/main.c:46
+    #4 0x7628a1827780  (/usr/lib/libc.so.6+0x27780) (BuildId: d320029ad1a23be2f4bce117fd321cbd23a2014b)
+    #5 0x7628a18278b8 in __libc_start_main (/usr/lib/libc.so.6+0x278b8) (BuildId: d320029ad1a23be2f4bce117fd321cbd23a2014b)
+    #6 0x6458682e33e4 in _start (/home/n8/dev/c/LearnCStringsByGrinding/units/s00-bytes-and-nul/e03-literal-write/build/asan/prog+0xd3e4) (BuildId: 63d18127822fd3af8e5253f416acecbcb236d7c0)
+
+==1589159==Register values:
+rax = 0x00006458682ecf80  rbx = 0x0000000000000000  rcx = 0x0000000000000000  rdx = 0x00006458682ecf80  
+rdi = 0x0000000000000000  rsi = 0x0000000000000057  rbp = 0x00007ffe2857f400  rsp = 0x00007ffe2857f3e0  
+ r8 = 0x0000000000000000   r9 = 0x0000000000000000  r10 = 0x0000000000000007  r11 = 0x00006458682ecf87  
+r12 = 0x00007ffe2857f5e8  r13 = 0x0000000000000001  r14 = 0x00007628a2bde000  r15 = 0x00006458682f1cf0  
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV /home/n8/dev/c/LearnCStringsByGrinding/units/s00-bytes-and-nul/e03-literal-write/upcase.c:14 in upcase
+==1589159==ABORTING
+make[1]: *** [../../../common.mk:135: asan] Error 134
+# exit status: 2

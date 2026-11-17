@@ -1,0 +1,16 @@
+s01.warns = no
+s02.warns = yes
+s02.flag = -Wstringop-truncation
+s03.warns = no
+s04.warns = yes
+s04.flag = -Wsizeof-pointer-memaccess
+s05.warns = no
+s06.warns = yes
+s06.flag = -Wformat
+s07.warns = yes
+s07.flag = -Warray-bounds
+s08.warns = no
+s09.warns = yes
+s09.flag = -Wunterminated-string-initialization
+s10.warns = yes
+s10.flag = -Wstringop-overread

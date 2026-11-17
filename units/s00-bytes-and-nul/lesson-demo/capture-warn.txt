@@ -1,0 +1,11 @@
+# source-sha256: d595adbfb03fff49e8d081c4ad58b9ba1064fd9a291a5de4dc102b84702b2052
+# tool: warn   captured: 2026-11-16 22:44 PST on Linux x86_64, cc (GCC) 16.2.1 20260810
+# Addresses, PIDs and thread ids will differ on your run.
+warn.c:8:16: warning: initializer-string for array of ‘char’ truncates NUL terminator but destination lacks ‘nonstring’ attribute (4 chars into 3 available) [-Wunterminated-string-initialization]
+    8 | char code[3] = "abc";
+      |                ^~~~~
+warn.c: In function ‘clear’:
+warn.c:13:25: warning: argument to ‘sizeof’ in ‘memset’ call is the same expression as the destination; did you mean to provide an explicit length? [-Wsizeof-pointer-memaccess]
+   13 |     memset(p, 0, sizeof p);
+      |                         ^
+# exit status: 0

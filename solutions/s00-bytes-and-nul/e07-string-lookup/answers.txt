@@ -1,0 +1,9 @@
+strlen.counts_terminator = no
+strlen.empty = 0
+strlen.header = string.h
+strlen.return_type = size_t
+strlen.param_const = yes
+strlen.unterminated = undefined
+strlen.bounded_name = strnlen
+puts.appends_newline = yes
+puts.error_return = EOF

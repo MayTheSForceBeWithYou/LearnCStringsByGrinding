@@ -1,0 +1,59 @@
+# source-sha256: cc6b3027f154b47c3c9e1b98671c67063aaffbafba65a8a7c248c8e26ebbe3f2
+# tool: asan   captured: 2026-11-16 23:02 PST on Linux x86_64, cc (GCC) 16.2.1 20260810
+# Addresses, PIDs and thread ids will differ on your run.
+=================================================================
+==1693800==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x6fb740ae00f1 at pc 0x60353ea10920 bp 0x7ffef1042af0 sp 0x7ffef1042ae0
+READ of size 1 at 0x6fb740ae00f1 thread T0
+    #0 0x60353ea1091f in count_upper /home/n8/dev/c/LearnCStringsByGrinding/units/s01-length/e03-empty-wraps/stats.c:11
+    #1 0x60353ea106f4 in one /home/n8/dev/c/LearnCStringsByGrinding/units/s01-length/e03-empty-wraps/main.c:17
+    #2 0x60353ea10823 in main /home/n8/dev/c/LearnCStringsByGrinding/units/s01-length/e03-empty-wraps/main.c:31
+    #3 0x739741c27780  (/usr/lib/libc.so.6+0x27780) (BuildId: d320029ad1a23be2f4bce117fd321cbd23a2014b)
+    #4 0x739741c278b8 in __libc_start_main (/usr/lib/libc.so.6+0x278b8) (BuildId: d320029ad1a23be2f4bce117fd321cbd23a2014b)
+    #5 0x60353ea103d4 in _start (/home/n8/dev/c/LearnCStringsByGrinding/units/s01-length/e03-empty-wraps/build/asan/prog+0xc3d4) (BuildId: 884f0bdc3ec477a62f0dbc8b85d4ceabe0bfda42)
+
+0x6fb740ae00f1 is located 0 bytes after 1-byte region [0x6fb740ae00f0,0x6fb740ae00f1)
+allocated by thread T0 here:
+    #0 0x73974292c0c1 in malloc (/usr/lib/libasan.so.8+0x12c0c1) (BuildId: b8a4241051a1621937fdc46e867ba7ecb56d96ea)
+    #1 0x60353ea14c46 in guard_new /home/n8/dev/c/LearnCStringsByGrinding/lib/guard.c:55
+    #2 0x60353ea14f80 in guard_copy /home/n8/dev/c/LearnCStringsByGrinding/lib/guard.c:81
+    #3 0x60353ea106e4 in one /home/n8/dev/c/LearnCStringsByGrinding/units/s01-length/e03-empty-wraps/main.c:15
+    #4 0x60353ea10823 in main /home/n8/dev/c/LearnCStringsByGrinding/units/s01-length/e03-empty-wraps/main.c:31
+    #5 0x739741c27780  (/usr/lib/libc.so.6+0x27780) (BuildId: d320029ad1a23be2f4bce117fd321cbd23a2014b)
+    #6 0x739741c278b8 in __libc_start_main (/usr/lib/libc.so.6+0x278b8) (BuildId: d320029ad1a23be2f4bce117fd321cbd23a2014b)
+    #7 0x60353ea103d4 in _start (/home/n8/dev/c/LearnCStringsByGrinding/units/s01-length/e03-empty-wraps/build/asan/prog+0xc3d4) (BuildId: 884f0bdc3ec477a62f0dbc8b85d4ceabe0bfda42)
+
+SUMMARY: AddressSanitizer: heap-buffer-overflow /home/n8/dev/c/LearnCStringsByGrinding/units/s01-length/e03-empty-wraps/stats.c:11 in count_upper
+Shadow bytes around the buggy address:
+  0x6fb740adfe00: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x6fb740adfe80: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x6fb740adff00: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x6fb740adff80: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x6fb740ae0000: fa fa fd fd fa fa fd fa fa fa fd fa fa fa fd fa
+=>0x6fb740ae0080: fa fa fd fa fa fa fd fd fa fa fd fa fa fa[01]fa
+  0x6fb740ae0100: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x6fb740ae0180: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x6fb740ae0200: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x6fb740ae0280: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x6fb740ae0300: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+==1693800==ABORTING
+make[1]: *** [../../../common.mk:135: asan] Error 134
+# exit status: 2

@@ -1,0 +1,56 @@
+# s00-e05-char-signedness
+#
+# One answer per line: key = value. Fill in every line, then run `make check`.
+#
+# Three variables hold the same byte, 0xE9:
+#
+#     signed char   sc = (signed char)0xE9;
+#     unsigned char uc = (unsigned char)0xE9;
+#     char          pc = (char)0xE9;
+#
+# Every answer is one decimal integer, except the last, which is a word.
+# A question that asks whether something is true wants 1 for true and 0 for false.
+#
+# Two worked examples (not graded, shown in the README):
+#   uc + 1       = 234      (uc promotes to int 233, and 233 + 1 is 234)
+#   (int)'A'     = 65       (a character constant is an int)
+
+# The value each variable has when it is promoted to int, as printf("%d") would show it
+sc.value =
+uc.value =
+pc.value =
+
+# Is plain char a signed type on this machine?  1 = yes, 0 = no
+pc.is_signed =
+
+# Is the value greater than zero?  gt(sc, 0) and gt(uc, 0)
+sc.gt_zero =
+uc.gt_zero =
+
+# Comparisons: eq(sc, uc), eq(sc, '\xE9'), eq(uc, '\xE9')
+sc.eq_uc =
+sc.eq_charconst =
+uc.eq_charconst =
+
+# Ordering against a letter: lt(sc, 'a') and lt(uc, 'a')
+sc.lt_a =
+uc.lt_a =
+
+# Casts between the two character types: (unsigned char)sc and (signed char)uc
+sc.to_uchar =
+uc.to_schar =
+
+# The high nibble, written as a shift: sc >> 4 and uc >> 4
+sc.shift4 =
+uc.shift4 =
+
+# The value the subscript uses in letter[sc] and in letter[uc]
+index.sc =
+index.uc =
+
+# The value letter[uc] reads out of the 256-entry table
+letter.at_uc =
+
+# The value letter[sc] reads out of the same table.
+# A number, or the word undefined if the standard does not say what the read gives.
+letter.at_sc =

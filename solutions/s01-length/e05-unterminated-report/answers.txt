@@ -1,0 +1,9 @@
+access.kind = read
+access.size = 5
+region.size = 4
+fault.function = report_width
+alloc.file = dup.c
+alloc.line = 16
+defect.function = field_dup
+size.function = field_dup_size
+malloc.bytes = 5

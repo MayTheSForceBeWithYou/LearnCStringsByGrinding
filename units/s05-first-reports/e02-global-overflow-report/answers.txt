@@ -1,0 +1,36 @@
+# s05-e02-global-overflow-report
+#
+# Answer from capture.txt and the source, BEFORE running anything. One answer per
+# line: key = value. The README says where in the report each answer lives.
+
+# How many rows does the table have?  (an integer)
+table.rows =
+
+# How many bytes is one row?  (an integer)
+row.size =
+
+# The name AddressSanitizer gives this error, exactly as the report writes it.
+error.kind =
+
+# Did the bad access read memory or write it?  read | write
+access.kind =
+
+# The name of the variable the report names in its "is located" line about this
+# program's own data.  (the identifier only)
+variable.name =
+
+# The file that variable is defined in.  (the file name only)
+variable.file =
+
+# The line it is defined on.  (an integer)
+variable.line =
+
+# Its size in bytes, as the report gives it.  (an integer)
+variable.size =
+
+# The first function in the frame list that belongs to this exercise rather than to a
+# library.  (the identifier only)
+fault.function =
+
+# The line number of that frame.  (an integer)
+fault.line =

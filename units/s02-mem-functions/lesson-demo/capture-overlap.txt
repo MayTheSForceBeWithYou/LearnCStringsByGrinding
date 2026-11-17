@@ -1,0 +1,38 @@
+# source-sha256: 2b05d1c0674d7b5ea48c29f11a62572da37b38db082327ac80a8a2aeb156a864
+# tool: asan   captured: 2026-11-17 02:40 PST on Linux x86_64, cc (GCC) 16.2.1 20260810
+# Addresses, PIDs and thread ids will differ on your run.
+=================================================================
+==1807955==ERROR: AddressSanitizer: memcpy-param-overlap: memory ranges [0x71f8d82d0080,0x71f8d82d0097) and [0x71f8d82d0084, 0x71f8d82d009b) overlap
+    #0 0x75f8db129547 in memcpy (/usr/lib/libasan.so.8+0x129547) (BuildId: b8a4241051a1621937fdc46e867ba7ecb56d96ea)
+    #1 0x5a63d47445be in copy /home/n8/dev/c/LearnCStringsByGrinding/units/s02-mem-functions/lesson-demo/main.c:30
+    #2 0x5a63d47448b0 in main /home/n8/dev/c/LearnCStringsByGrinding/units/s02-mem-functions/lesson-demo/main.c:51
+    #3 0x75f8da427780  (/usr/lib/libc.so.6+0x27780) (BuildId: d320029ad1a23be2f4bce117fd321cbd23a2014b)
+    #4 0x75f8da4278b8 in __libc_start_main (/usr/lib/libc.so.6+0x278b8) (BuildId: d320029ad1a23be2f4bce117fd321cbd23a2014b)
+    #5 0x5a63d4744404 in _start (/home/n8/dev/c/LearnCStringsByGrinding/units/s02-mem-functions/lesson-demo/build/asan/prog+0xd404) (BuildId: e907b3415933a124b02ea52a31b74dc7872348b9)
+
+Address 0x71f8d82d0080 is located in stack of thread T0 at offset 128 in frame
+    #0 0x5a63d4744647 in main /home/n8/dev/c/LearnCStringsByGrinding/units/s02-mem-functions/lesson-demo/main.c:44
+
+  This frame has 5 object(s):
+    [32, 40) 'p' (line 100)
+    [64, 72) 'q' (line 100)
+    [96, 104) 'buf' (line 45)
+    [128, 160) 'text' (line 49) <== Memory access at offset 128 is inside this variable
+    [192, 256) 'note' (line 46)
+HINT: this may be a false positive if your program uses some custom stack unwind mechanism, swapcontext or vfork
+      (longjmp and C++ exceptions *are* supported)
+Address 0x71f8d82d0084 is located in stack of thread T0 at offset 132 in frame
+    #0 0x5a63d4744647 in main /home/n8/dev/c/LearnCStringsByGrinding/units/s02-mem-functions/lesson-demo/main.c:44
+
+  This frame has 5 object(s):
+    [32, 40) 'p' (line 100)
+    [64, 72) 'q' (line 100)
+    [96, 104) 'buf' (line 45)
+    [128, 160) 'text' (line 49) <== Memory access at offset 132 is inside this variable
+    [192, 256) 'note' (line 46)
+HINT: this may be a false positive if your program uses some custom stack unwind mechanism, swapcontext or vfork
+      (longjmp and C++ exceptions *are* supported)
+SUMMARY: AddressSanitizer: memcpy-param-overlap /home/n8/dev/c/LearnCStringsByGrinding/units/s02-mem-functions/lesson-demo/main.c:30 in copy
+==1807955==ABORTING
+make[1]: *** [../../../common.mk:135: asan] Error 134
+# exit status: 2

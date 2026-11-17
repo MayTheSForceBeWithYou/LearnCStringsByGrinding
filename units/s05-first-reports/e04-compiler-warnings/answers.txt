@@ -1,0 +1,50 @@
+# s05-e04-compiler-warnings
+#
+# One answer per line: key = value. Fill in every line, then run `make check`.
+#
+#   sNN.warns   does gcc warn about snippet NN at -O2 with -Wall -Wextra -Wpedantic?
+#               yes | no
+#   sNN.flag    the flag it is under, as the diagnostic prints it in square brackets,
+#               with its leading -W and WITHOUT any trailing '='. For example,
+#               a diagnostic printed as [-Wfoo-bar=] is written -Wfoo-bar here.
+#               A .flag line exists only for the snippets that do warn.
+#
+# Two worked examples (not graded, shown in the README):
+#   a call to gets()                     warns = yes   flag = -Wdeprecated-declarations
+#   printf("%s", (char *)0)              warns = no
+
+# 01: strncpy(dst, src, 8) with both pointers as parameters
+s01.warns =
+
+# 02: strncpy(dst, "abcdefgh", sizeof dst) into a local char[8]
+s02.warns =
+s02.flag =
+
+# 03: return sizeof p, where p is a const char * parameter
+s03.warns =
+
+# 04: memset(p, 0, sizeof p), where p is a char * parameter
+s04.warns =
+s04.flag =
+
+# 05: printf("%s has %s items\n", name, (const char *)&n) with an int n
+s05.warns =
+
+# 06: printf("%d\n", n) with a size_t n
+s06.warns =
+s06.flag =
+
+# 07: strcpy(small, "a much longer greeting") into a local char[8]
+s07.warns =
+s07.flag =
+
+# 08: snprintf(label, sizeof label, "user: %s", name) into a local char[8]
+s08.warns =
+
+# 09: char code[3] = "abc";
+s09.warns =
+s09.flag =
+
+# 10: strlen(id) where id is a static const char[4] with no terminator
+s10.warns =
+s10.flag =

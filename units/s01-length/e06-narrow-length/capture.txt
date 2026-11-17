@@ -1,0 +1,13 @@
+# source-sha256: f648a2b88fae4e1020cb8164f5ebf2493f2b0a5b425b95ebd80892488c9c5127
+# tool: run   captured: 2026-11-17 02:04 PST on Linux x86_64, cc (GCC) 16.2.1 20260810
+# Addresses, PIDs and thread ids will differ on your run.
+FAIL main.c:35: name_set rejects a name longer than NAME_MAX
+FAIL main.c:36: a rejected name changes nothing in the record
+FAIL main.c:35: name_set rejects a name longer than NAME_MAX
+FAIL main.c:36: a rejected name changes nothing in the record
+FAIL main.c:35: name_set rejects a name longer than NAME_MAX
+FAIL main.c:36: a rejected name changes nothing in the record
+FAIL main.c:56: a rejected name leaves the stored name alone
+s01-e06-narrow-length: 7 check(s) failed
+make[1]: *** [../../../common.mk:131: run] Error 1
+# exit status: 2

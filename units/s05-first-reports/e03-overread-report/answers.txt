@@ -1,0 +1,36 @@
+# s05-e03-overread-report
+#
+# Answer from capture.txt and the source, BEFORE running anything. One answer per
+# line: key = value. The README says where in the report each answer lives.
+
+# How wide is the record's code field?  (an integer)
+field.width =
+
+# How many bytes should a heap copy of it, as a string, occupy?  (an integer)
+dup.bytes =
+
+# The name AddressSanitizer gives this error, exactly as the report writes it.
+error.kind =
+
+# Did the bad access read memory or write it?  read | write
+access.kind =
+
+# How many bytes did that one access touch?  (an integer, from the report)
+access.size =
+
+# How many bytes does the heap block hold?  (an integer, from the report)
+region.size =
+
+# The first function in the frame list of the bad access that belongs to this exercise
+# rather than to a library.  (the identifier only)
+fault.function =
+
+# The line number of that frame.  (an integer)
+fault.line =
+
+# In the "allocated by" stack, the first function that belongs to this exercise
+# outside lib/.  (the identifier only)
+alloc.function =
+
+# The line number of that frame.  (an integer)
+alloc.line =
