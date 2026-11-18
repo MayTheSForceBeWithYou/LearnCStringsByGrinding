@@ -14,9 +14,10 @@ thousands of generated inputs; and the reading and the exercise instructions are
 descriptive.
 
 > **Status:** Wave A complete. The spec, the harness and the first six units — **S00** to
-> **S05** — are in place, each with its lesson, exercises, drills and solutions. The
-> remaining fourteen units and the four capstones are specified in
-> [`docs/SPEC.md`](docs/SPEC.md) and not yet written.
+> **S05** — are in place: 6 lessons with their `lesson-demo`, **44 exercises**, **15 drills**
+> (S05 is report-only and has none), and a reference solution with `NOTES.md` for every
+> exercise and drill. Next is Wave B, **S06** to **S10**. The remaining fourteen units and
+> the four capstones are specified in [`docs/SPEC.md`](docs/SPEC.md) and not yet written.
 
 ## Documents
 
@@ -83,30 +84,30 @@ buffer before calling your code, so that a byte you did not write is visible.
 
 Folder names are the ones in `docs/SPEC.md` section 5.
 
-| Unit | Folder | Topic | State |
-|---|---|---|---|
-| [S00](units/s00-bytes-and-nul/LESSON.md) | `units/s00-bytes-and-nul` | Bytes, arrays and the terminator | **complete** |
-| [S01](units/s01-length/LESSON.md) | `units/s01-length` | Length: `strlen`, `strnlen`, `size_t` | **complete** |
-| [S02](units/s02-mem-functions/LESSON.md) | `units/s02-mem-functions` | `memcpy`, `memmove`, `memset`, `memcmp`, `memchr` | **complete** |
-| [S03](units/s03-copying/LESSON.md) | `units/s03-copying` | Copying: `strcpy`, `stpcpy`, `strncpy`, `stpncpy`, `snprintf`, `strlcpy` | **complete** |
-| [S04](units/s04-concatenation/LESSON.md) | `units/s04-concatenation` | Concatenation: `strcat`, `strncat`, end pointers | **complete** |
-| [S05](units/s05-first-reports/LESSON.md) | `units/s05-first-reports` | Your first string-bug reports | **complete** |
-| S06 | `units/s06-comparison` | Comparison: `strcmp`, `strncmp`, `strcasecmp`, `qsort` | specified |
-| S07 | `units/s07-ctype` | Character classes: `<ctype.h>` | specified |
-| S08 | `units/s08-searching` | Searching: `strchr`, `strrchr`, `strstr`, `strpbrk` | specified |
-| S09 | `units/s09-spans-tokens` | Spans and tokens: `strspn`, `strcspn`, `strtok`, `strtok_r` | specified |
-| S10 | `units/s10-numbers-from-text` | Numbers from text: the `strtol` family | specified |
-| S11 | `units/s11-formatted-output` | Formatted output: the `printf` family | specified |
-| S12 | `units/s12-line-input` | Lines and formatted input: `fgets`, `getline`, `sscanf` | specified |
-| S13 | `units/s13-heap-strings-streams` | Heap strings and memory streams | specified |
-| S14 | `units/s14-system-strings` | `argv`, `getenv`, `strerror`, `strftime` | specified |
-| S15 | `units/s15-locale-multibyte-wide` | Locales, multibyte and wide characters | specified |
-| S16 | `units/s16-utf8-by-hand` | UTF-8 by hand | specified |
-| S17 | `units/s17-pattern-matching` | `fnmatch` and POSIX regular expressions | specified |
-| S18 | `units/s18-bug-zoo` | Bug hunt: the string bug zoo | specified |
-| S19 | `units/s19-string-api-design` | Designing string APIs | specified |
+| Unit | Folder | Topic | State | Built |
+|---|---|---|---|---|
+| [S00](units/s00-bytes-and-nul/LESSON.md) | `units/s00-bytes-and-nul` | Bytes, arrays and the terminator | **complete** | 7 exercises, 3 drills |
+| [S01](units/s01-length/LESSON.md) | `units/s01-length` | Length: `strlen`, `strnlen`, `size_t` | **complete** | 7 exercises, 3 drills |
+| [S02](units/s02-mem-functions/LESSON.md) | `units/s02-mem-functions` | `memcpy`, `memmove`, `memset`, `memcmp`, `memchr` | **complete** | 8 exercises, 3 drills |
+| [S03](units/s03-copying/LESSON.md) | `units/s03-copying` | Copying: `strcpy`, `stpcpy`, `strncpy`, `stpncpy`, `snprintf`, `strlcpy` | **complete** | 8 exercises, 3 drills |
+| [S04](units/s04-concatenation/LESSON.md) | `units/s04-concatenation` | Concatenation: `strcat`, `strncat`, end pointers | **complete** | 8 exercises, 3 drills |
+| [S05](units/s05-first-reports/LESSON.md) | `units/s05-first-reports` | Your first string-bug reports | **complete** | 6 exercises, no drills |
+| S06 | `units/s06-comparison` | Comparison: `strcmp`, `strncmp`, `strcasecmp`, `qsort` | specified (Wave B) | — |
+| S07 | `units/s07-ctype` | Character classes: `<ctype.h>` | specified (Wave B) | — |
+| S08 | `units/s08-searching` | Searching: `strchr`, `strrchr`, `strstr`, `strpbrk` | specified (Wave B) | — |
+| S09 | `units/s09-spans-tokens` | Spans and tokens: `strspn`, `strcspn`, `strtok`, `strtok_r` | specified (Wave B) | — |
+| S10 | `units/s10-numbers-from-text` | Numbers from text: the `strtol` family | specified (Wave B) | — |
+| S11 | `units/s11-formatted-output` | Formatted output: the `printf` family | specified (Wave C) | — |
+| S12 | `units/s12-line-input` | Lines and formatted input: `fgets`, `getline`, `sscanf` | specified (Wave C) | — |
+| S13 | `units/s13-heap-strings-streams` | Heap strings and memory streams | specified (Wave C) | — |
+| S14 | `units/s14-system-strings` | `argv`, `getenv`, `strerror`, `strftime` | specified (Wave C) | — |
+| S15 | `units/s15-locale-multibyte-wide` | Locales, multibyte and wide characters | specified (Wave D) | — |
+| S16 | `units/s16-utf8-by-hand` | UTF-8 by hand | specified (Wave D) | — |
+| S17 | `units/s17-pattern-matching` | `fnmatch` and POSIX regular expressions | specified (Wave D) | — |
+| S18 | `units/s18-bug-zoo` | Bug hunt: the string bug zoo | specified (Wave E) | — |
+| S19 | `units/s19-string-api-design` | Designing string APIs | specified (Wave D) | — |
 
-Capstones (specified): `c1-mystring` (`<string.h>` from a blank file), `c2-minifmt`
+Capstones (specified, Wave E): `c1-mystring` (`<string.h>` from a blank file), `c2-minifmt`
 (`vsnprintf`), `c3-conf` (an INI reader), `c4-csvstat` (a CSV reader and report).
 
 ## For authors
